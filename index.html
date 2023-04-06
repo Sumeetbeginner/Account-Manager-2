@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- Startup Page -->
+</head>   
+<link rel="stylesheet" href="index.css">
+<body onload="start()">
+    
+
+<div  id="login">
+    <h2 id="welcome1">Welcome!</h2>
+    <h2 id="welcome2">Account Manager</h2>
+
+<div id="details">
+
+<div  id="form"> 
+    <h1 id="setup">Setup</h1>
+
+
+
+<input placeholder="  Name"  type="text" id="name" required>
+
+<input placeholder=" Username" id="un" type="text" required>
+
+<div id="pass">
+<input placeholder="  Password" id="password" type="password" required>
+
+<img onclick="showpass()"  src="eye.png" alt="" id="eye">
+
+<img onclick="hidepass()"  src="invisible.png" alt="" id="eyeclose">
+</div>
+
+<br>
+<select name="Profession" id="prof" required>
+
+<option value="nothing">Select Profession</option>
+<option value="Student">Student</option>
+<option value="Teacher">Teacher</option>
+<option value="Engineer">Engineer</option>
+<option value="Employee">Employee</option>
+<option value="Businessman">Businessman</option>
+<option value="Scientist">Scientist</option>
+<option value="Doctor">Doctor</option>
+<option value="Accountant">Accountant</option>
+<option value="Others">Others</option>
+</select>
+<br>
+
+<button  onclick="submit()"  id="submitform">Submit</button>
+
+   
+</div>
+
+
+<div id="form2">
+
+    <div id="limits">
+
+<h2 id="lims">Select Limit</h2>
+
+<div id="lims2">
+
+<div onclick="weekly()" id="weekly1">
+
+<h2>Weekly</h2>
+
+</div>
+
+<div onclick="monthly()" id="monthly1">
+
+    <h2>Monthly</h2>
+    
+</div>
+
+</div>
+
+    </div>
+
+    <div id="setlim">
+
+
+    <h2 id="setlim1">Set Limit</h2>
+
+<div id="setlim2">
+
+<img onclick="minus()" src="minus.png" alt="" id="minus">
+<h2 id="limit1"></h2>
+<img onclick="plus()" src="plus.png" alt="" id="plus">
+
+
+</div>
+
+
+
+
+
+    </div>
+
+    <button onclick="submit2()" id="submit2">Submit</button>
+
+
+</div>
+
+<div id="form3">
+
+<div id="cavatar">
+<h2 id="chooseava">Choose Avatar</h2>
+  <div id="avatarchange">
+
+<img onclick="left()" src="left.png" alt="" id="left">
+<img src="ava1.png" alt="" id="avatarpic">
+<img onclick="right()" src="right.png" alt="" id="right">
+
+
+
+
+  </div>
+
+
+  <button onclick="submit3()" id="submit3">Submit</button>
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+<div id="dot">
+
+    <div id="dot1"></div>
+    <div id="dot2"></div>
+    <div id="dot3"></div>
+
+</div>
+</div>
+</div>
+
+<div id="home">
+
+
+
+</div>
+
+
+<div id="popup">
+
+<img onclick="closepopup()" src="close.png" alt="" id="close">
+    
+<h2 id="datarec">Data Recorded 🎉</h2>
+
+<h3 id="name1"></h2>
+<img src="" alt="" id="pic1">
+<h3 id="name2"></h2>
+<h3 id="name3"></h2>
+<h3 id="name4"></h2>
+<h3 id="name5"></h2>
+<h3 id="name6"></h2>
+<h3 id="name7"></h2>
+
+</div>
+
+<script src="index.js"></script>
+
+</body>
+</html>
