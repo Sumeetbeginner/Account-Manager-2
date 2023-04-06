@@ -487,3 +487,151 @@ color: rgb(255, 37, 37);
 
     margin-top: 4%;
 }
+
+
+#sett{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   
+    margin-top: 6%;
+}
+
+#setting{
+
+    width: 13%;
+    margin-right: 60%;
+}
+
+#account{
+
+    width: 13.5%;
+
+}
+
+footer{
+
+    width: 100%;
+    height: 11.4vh;
+    background-color: #575d6955;
+    position: fixed;
+    
+  bottom: 0px;
+  border-radius: 20px 20px 0px 0px ;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+#home1, #cal1, #add1, #analytics1, #wallet1{
+
+    width: 8.5%;
+    margin-left: 6%;
+    margin-right: 4%;
+    z-index: 9999999;
+}
+
+#home1{
+
+ width: 13%;
+   margin-top: -1%;
+}
+
+
+#quote{
+
+    color: white;
+    background-color: #575d6955;
+  
+    padding: 1% 5%;
+    font-size: 13px;
+    border-radius: 20px;
+   width: 83%;
+   margin-left: auto;
+   margin-right: auto;
+   margin-top: 7%;
+    
+}
+
+#artist{
+
+    text-align: end;
+    font-style: italic;
+}
+
+
+#moneysl{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 14px;
+  text-align: center;
+}
+
+#mleft{
+
+    background-color: red;
+    width: 50%;
+    padding: 5% 20%;
+    font-size: 30px;
+    border-radius: 10px;
+    text-align: center;
+    margin-top: -5%;
+    margin-left: 13%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+#mlim{
+
+    background-color: rgb(12, 183, 43);
+    width: 50%;
+    padding: 5% 15%;
+    font-size: 30px;
+    border-radius: 10px;
+    text-align: center;
+    margin-top: -5%;
+    margin-left: 15%;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#moneyspent{
+
+    margin-right: 17%;
+    margin-top: 5%;
+   
+}
+
+#moneylimit{
+
+    margin-top: 5%;
+}
+
+
+#dayc{
+
+    color: white;
+    text-align: center;
+    font-size: 27px;
+    background-color: #575d6955;
+    width: 30%;
+    padding: 2% 4%;
+    border-radius: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 3%;
+    
+}
+
