@@ -11,6 +11,14 @@ function start() {
   }
   else {
 
+
+    localStorage.setItem("Entertainmentspent", 0);
+    localStorage.setItem("Foodspent", 0);
+    localStorage.setItem("Shoppingspent", 0);
+    localStorage.setItem("Healthspent", 0);
+    localStorage.setItem("Studyspent", 0);
+    localStorage.setItem("Othersspent", 0);
+
     localStorage.setItem("Transactioncount", -1);
     localStorage.setItem("Day", 1);
 
@@ -425,9 +433,6 @@ function wall() {
   document.getElementById("wallet1").style.width = "13%";
 }
 
-
-
-
 function home() {
 
 
@@ -506,6 +511,11 @@ function home() {
 
     localStorage.setItem("Daycount", day);
 
+
+
+
+
+
   }
 
   if (localStorage.getItem("Weekly") == "yes") {
@@ -513,6 +523,22 @@ function home() {
     if (Number(localStorage.getItem("Day")) > 7) {
 
       localStorage.setItem("Day", Number(1));
+
+localStorage.setItem("Balance", localStorage.getItem("Limit"));
+
+localStorage.setItem("Spent", 0);
+
+
+localStorage.setItem("Entertainmentspent", 0);
+localStorage.setItem("Foodspent", 0);
+localStorage.setItem("Shoppingspent", 0);
+localStorage.setItem("Healthspent", 0);
+localStorage.setItem("Studyspent", 0);
+localStorage.setItem("Othersspent", 0);
+
+
+
+
 
 
     }
@@ -524,6 +550,18 @@ function home() {
 
       localStorage.setItem("Day", Number(1));
 
+      localStorage.setItem("Balance", localStorage.getItem("Limit"));
+
+localStorage.setItem("Spent", 0);
+
+
+localStorage.setItem("Entertainmentspent", 0);
+localStorage.setItem("Foodspent", 0);
+localStorage.setItem("Shoppingspent", 0);
+localStorage.setItem("Healthspent", 0);
+localStorage.setItem("Studyspent", 0);
+localStorage.setItem("Othersspent", 0);
+
 
     }
 
@@ -533,7 +571,6 @@ function home() {
 
 
 }
-
 
 function spendmoney() {
 
@@ -555,6 +592,63 @@ function spendmoney() {
 
 function analytics() {
 
+  var xValues = ["Money Remaining", "Money Spent"];
+  var yValues = [localStorage.getItem("Balance"), localStorage.getItem("Spent")];
+  var barColors = [
+    "green",
+    "red",
+   
+  ];
+  
+  new Chart("myChart", {
+    type: "pie",
+    data: {
+      labels: xValues,
+      datasets: [{
+        backgroundColor: barColors,
+        data: yValues
+      }]
+    },
+    options: {
+      title: {
+        display: true,
+        text: ""
+      }
+    }
+  });
+
+  var xValues = ["Entertainment", "Food", "Shopping", "Health", "Study", "Others"];
+  var yValues = [localStorage.getItem("Entertainmentspent"), localStorage.getItem("Foodspent"), localStorage.getItem("Shoppingspent"), localStorage.getItem("Healthspent"), localStorage.getItem("Studyspent"), localStorage.getItem("Othersspent"), ];
+  var barColors = [
+    "violet",
+    "yellow",
+    "orange",
+    "purple",
+    "pink",
+    "blue"
+   
+  ];
+  
+  new Chart("myChart1", {
+    type: "pie",
+    data: {
+      labels: xValues,
+      datasets: [{
+        backgroundColor: barColors,
+        data: yValues
+      }]
+    },
+    options: {
+      title: {
+        display: true,
+        text: ""
+      }
+    }
+  });
+
+
+
+
   navigator.vibrate(50)
 
   document.getElementById("home").style.display = "none";
@@ -570,9 +664,34 @@ function analytics() {
 
 }
 
-
-
 function wallet() {
+
+
+var i = localStorage.getItem("Transactioncount");
+var lawda = 1;
+
+  for( count = i; count>=0; count--){
+
+document.getElementById("category" + lawda).src = localStorage.getItem("cat" + count).toLowerCase() + ".png"
+
+document.getElementById("spentw" + lawda).innerHTML = localStorage.getItem("where" + count);
+
+document.getElementById("rs" + lawda).innerHTML = "-₹" + (localStorage.getItem("spent" + count));
+
+lawda++;
+
+if(lawda>9){
+
+
+  break;
+}
+
+
+  }
+
+
+
+
 
 
   if (localStorage.getItem("Weekly") == "yes") {
@@ -650,16 +769,6 @@ percent = Math.ceil(percent);
   document.getElementById("wallet").style.display = "block";
 
 }
-
-
-
-
-
-
-
-
-
-
 
 
 function calculator() {
@@ -780,8 +889,6 @@ function study() {
 
 }
 
-
-
 function others() {
 
   localStorage.setItem("Category", "Others");
@@ -802,8 +909,66 @@ let where = [];
 let spent = [];
 let cat = [];
 
+let date = [];
+
+var livedate = new Date();
+localStorage.setItem("Livedate", livedate)  ;
+
 
 function record(){
+
+
+  var livedate = new Date();
+  localStorage.setItem("Livedate", livedate)  ;
+
+
+
+  if(localStorage.getItem("Category") == "Entertainment" ){
+
+    localStorage.setItem("Entertainmentspent", Number(localStorage.getItem("Entertainmentspent")) + Number(document.getElementById("amountspent").value));
+  
+  }
+  
+  else if(localStorage.getItem("Category") == "Food" ){
+  
+    localStorage.setItem("Foodspent", Number(localStorage.getItem("Foodspent")) + Number(document.getElementById("amountspent").value));
+  
+  }
+  
+  else if(localStorage.getItem("Category") == "Shopping" ){
+  
+    localStorage.setItem("Shoppingspent", Number(localStorage.getItem("Shoppingspent")) + Number(document.getElementById("amountspent").value));
+  
+  
+  }
+  
+  else if(localStorage.getItem("Category") == "Health" ){
+  
+    localStorage.setItem("Healthspent", Number(localStorage.getItem("Healthspent")) + Number(document.getElementById("amountspent").value));
+  
+    
+  }
+  
+  else if(localStorage.getItem("Category") == "Study" ){
+  
+    localStorage.setItem("Studyspent", Number(localStorage.getItem("Studyspent")) + Number(document.getElementById("amountspent").value));
+  
+    
+  }
+  
+  else if(localStorage.getItem("Category") == "Others" ){
+  
+    localStorage.setItem("Othersspent", Number(localStorage.getItem("Othersspent")) + Number(document.getElementById("amountspent").value));
+  
+    
+  }
+
+
+setTimeout(() => {
+  document.getElementById("spentwhere").value = "";
+  document.getElementById("amountspent").value = "";
+}, 100);
+
 
   var draudio = new Audio('dr.mp3');
   draudio.play();
@@ -817,6 +982,8 @@ function record(){
   where[localStorage.getItem("Transactioncount")] = document.getElementById("spentwhere").value;
   spent[localStorage.getItem("Transactioncount")] = document.getElementById("amountspent").value;
   cat[localStorage.getItem("Transactioncount")] = localStorage.getItem("Category");
+  date[localStorage.getItem("Transactioncount")] = localStorage.getItem("Livedate");
+
 
 
   localStorage.setItem("where" + localStorage.getItem("Transactioncount"), where[localStorage.getItem("Transactioncount")])
@@ -826,8 +993,105 @@ function record(){
 
   localStorage.setItem("cat" + localStorage.getItem("Transactioncount"), cat[localStorage.getItem("Transactioncount")])
 
+  localStorage.setItem("date" + localStorage.getItem("Transactioncount"), date[localStorage.getItem("Transactioncount")])
+
+
   
 }
+
+function emerrecord(){
+  var livedate = new Date();
+  localStorage.setItem("Livedate", livedate)  ;
+
+  
+
+if(localStorage.getItem("Category") == "Entertainment" ){
+
+  localStorage.setItem("Entertainmentspent", Number(localStorage.getItem("Entertainmentspent")) + Number(document.getElementById("amountspent").value));
+
+}
+
+else if(localStorage.getItem("Category") == "Food" ){
+
+  localStorage.setItem("Foodspent", Number(localStorage.getItem("Foodspent")) + Number(document.getElementById("amountspent").value));
+
+}
+
+else if(localStorage.getItem("Category") == "Shopping" ){
+
+  localStorage.setItem("Shoppingspent", Number(localStorage.getItem("Shoppingspent")) + Number(document.getElementById("amountspent").value));
+
+
+}
+
+else if(localStorage.getItem("Category") == "Health" ){
+
+  localStorage.setItem("Healthspent", Number(localStorage.getItem("Healthspent")) + Number(document.getElementById("amountspent").value));
+
+  
+}
+
+else if(localStorage.getItem("Category") == "Study" ){
+
+  localStorage.setItem("Studyspent", Number(localStorage.getItem("Studyspent")) + Number(document.getElementById("amountspent").value));
+
+  
+}
+
+else if(localStorage.getItem("Category") == "Others" ){
+
+  localStorage.setItem("Othersspent", Number(localStorage.getItem("Othersspent")) + Number(document.getElementById("amountspent").value));
+
+  
+}
+
+
+  setTimeout(() => {
+    document.getElementById("spentwhere").value = "";
+    document.getElementById("amountspent").value = "";
+  }, 100);
+
+  var draudio = new Audio('dr.mp3');
+  draudio.play();
+
+  // localStorage.setItem("Balance", Number(localStorage.getItem("Balance")) - document.getElementById("amountspent").value);
+
+  localStorage.setItem("Spent", Number(localStorage.getItem("Limit")) - Number(localStorage.getItem("Balance")));
+
+  localStorage.setItem("Transactioncount", Number(localStorage.getItem("Transactioncount")) + 1);
+
+  where[localStorage.getItem("Transactioncount")] = document.getElementById("spentwhere").value + " (E)"; 
+  spent[localStorage.getItem("Transactioncount")] = document.getElementById("amountspent").value;
+  cat[localStorage.getItem("Transactioncount")] = localStorage.getItem("Category");
+  date[localStorage.getItem("Transactioncount")] = localStorage.getItem("Livedate");
+
+
+  localStorage.setItem("where" + localStorage.getItem("Transactioncount"), where[localStorage.getItem("Transactioncount")])
+
+  localStorage.setItem("spent" + localStorage.getItem("Transactioncount"), spent[localStorage.getItem("Transactioncount")])
+
+
+  localStorage.setItem("cat" + localStorage.getItem("Transactioncount"), cat[localStorage.getItem("Transactioncount")])
+  
+
+  localStorage.setItem("date" + localStorage.getItem("Transactioncount"), date[localStorage.getItem("Transactioncount")])
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

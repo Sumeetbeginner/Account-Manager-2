@@ -287,17 +287,6 @@ Calculator
     </div>
     
     
-    <div id="cat32">
-    
-    
-    
-    
-        
-    </div>
-
-
-
-
 </div>
 
 
@@ -314,7 +303,7 @@ Calculator
 <button onclick="record()" id="submitamount">Submit</button>
 
 <div id="i">
-<button  id="emersubmitamount">Emergency Submit</button>
+<button onclick="emerrecord()"  id="emersubmitamount">Emergency Submit</button>
 
 <img onclick="openemerpopup()" id="i1" src="information-button.png" alt="">
 
@@ -326,7 +315,9 @@ Calculator
 </div>
 
 <div id="analytics">
-analytics
+    <canvas id="myChart" style="width:100%;"></canvas>
+
+    <canvas id="myChart1" style="width:100%;max-width:700px"></canvas>
 </div>
 
 <div id="wallet">
@@ -364,20 +355,94 @@ analytics
 
 
 
-<div id="trans1"></div>
-<div id="trans1"></div>
-<div id="trans1"></div>
-<div id="trans1"></div>
-<div id="trans1"></div>
-<div id="trans1"></div>
-<div id="trans1"></div>
-<div id="trans1"></div>
-<div id="trans1"></div>
-<div id="trans1"></div>
+
+<div class="trans10" id="trans1">
+
+    <img class="category10" id="category1" src="" alt="" >
+
+    <h2 class="spent10" id="spentw1"></h2>
+
+    <h2 class="rupees10" id="rs1"></h2>
+</div>
+<div class="trans10" id="trans2">
+
+    <img src="" alt="" class="category10" id="category2">
+
+    <h2 class="spent10" id="spentw2"></h2>
+
+    <h2 class="rupees10" id="rs2"></h2>
+</div>
+<div class="trans10" id="trans3">
+
+    <img src="" alt="" class="category10" id="category3">
+
+    <h2 class="spent10" id="spentw3"></h2>
+
+    <h2 class="rupees10" id="rs3"></h2>
+</div>
+<div class="trans10" id="trans4">
+
+    <img src="" alt="" class="category10" id="category4">
+
+    <h2 class="spent10" id="spentw4"></h2>
+
+    <h2 class="rupees10" id="rs4"></h2>
+</div>
+<div class="trans10" id="trans5">
+
+    <img src="" alt="" class="category10" id="category5">
+
+    <h2 class="spent10" id="spentw5"></h2>
+
+    <h2 class="rupees10" id="rs5"></h2>
+</div>
+<div class="trans10" id="trans6">
+
+    <img src="" alt="" class="category10" id="category6">
+
+    <h2 class="spent10" id="spentw6"></h2>
+
+    <h2 class="rupees10" id="rs6"></h2>
+</div>
+<div class="trans10"  id="trans7">
+
+
+    <img src="" alt="" class="category10" id="category7">
+
+    <h2 class="spent10" id="spentw7"></h2>
+
+    <h2 class="rupees10" id="rs7"></h2>
+
+</div>
+
+<div class="trans10" id="trans8">
+    <img src="" alt="" class="category10" id="category8">
+
+    <h2 class="spent10" id="spentw8"></h2>
+
+    <h2 class="rupees10" id="rs8"></h2>
+</div>
+
+<div class="trans10"  id="trans9">
+
+
+    <img src="" alt="" class="category10" id="category9">
+
+    <h2 class="spent10" id="spentw9"></h2>
+
+    <h2 class="rupees10" id="rs9"></h2>
+
+</div>
+
+
 
 <h2 id="sm">See More...</h2>
 
+<div id="divv">
 
+
+
+</div>
 
 
 </div>
@@ -420,6 +485,10 @@ analytics
     </footer>
 
     <script src="index.js"></script>
+
+    <script
+src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
+</script>
 
 </body>
 
