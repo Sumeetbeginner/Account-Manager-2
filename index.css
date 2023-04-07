@@ -751,7 +751,7 @@ margin-top: 3%;
 
 
 margin-top: -3%;
-height: 36vh;
+height: 36.6vh;
 overflow-y: scroll;
 
 }
@@ -982,4 +982,37 @@ align-items: center;
     width: 90%;
     color: rgb(0, 85, 255) ;
 
+}
+
+
+#home{
+
+    display: none;
+}
+
+#login{
+
+    display: none;
+
+
+}
+
+#calculator{
+
+    display: none;
+}
+
+#wallet{
+
+    display: none;
+}
+
+#analytics{
+
+    display: none;
+}
+
+#spendmoney{
+
+    display: none;
 }

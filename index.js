@@ -11,6 +11,7 @@ function start() {
   }
   else {
 
+    localStorage.setItem("Transactioncount", -1);
     localStorage.setItem("Day", 1);
 
     var d = new Date();
@@ -26,7 +27,7 @@ function start() {
     document.getElementById("analytics").style.display = "none";
     document.getElementById("spendmoney").style.display = "none";
     document.getElementById("navbar").style.display = "none";
-    localStorage.setItem("Avatarcount", -1);
+    localStorage.setItem("Avatarcount", 29);
 
     document.getElementById("form2").style.display = "none";
     document.getElementById("form3").style.display = "none";
@@ -589,6 +590,7 @@ function wallet() {
 
   var percent = (localStorage.getItem("Spent") / localStorage.getItem("Limit")) * 100;
 
+percent = Math.ceil(percent);
   if (percent >= 0 && percent <= 50) {
 
     document.getElementById("used1").innerHTML = "Used " + percent + "% of " + aaa + " Limit";
@@ -630,7 +632,7 @@ function wallet() {
 
 
 
-  document.getElementById("balance1").innerHTML = "₹" + (Number(localStorage.getItem("Limit")) - Number(localStorage.getItem("Spent")));
+  document.getElementById("balance1").innerHTML = "₹" + localStorage.getItem("Balance");
 
   document.getElementById("profilee1").src = ava[localStorage.getItem("Avatarcount")]
 
@@ -691,7 +693,9 @@ function openemerpopup() {
 
   document.getElementById("title").innerHTML = "Emergency Submit";
   document.getElementById("title").style.color = "red";
+  document.getElementById("info1").innerHTML = "After Clicking on Emergency Submit the Amount will not be deducted from your Balance but you will have its data in this app";
 
+  document.getElementById("info2").innerHTML = "You can use this when amount is big and you dont want to deduct it from your limit...";
 
 }
 
@@ -700,9 +704,7 @@ function closepopup2() {
 
   document.getElementById("popup2").style.display = "none";
   document.getElementById("navbar").style.display = "flex";
-  document.getElementById("info1").innerHTML = "After Clicking on Emergency Submit the Amount will not be deducted from your Balance but you will have its data in this app";
 
-  document.getElementById("info2").innerHTML = "You can use this when amount is big and you dont want to deduct it from your limit...";
 
 
 }
@@ -793,6 +795,41 @@ function others() {
 
 
 }
+
+localStorage.setItem("Balance", Number(localStorage.getItem("Limit")) - Number(localStorage.getItem("Spent")))
+
+let where = [];
+let spent = [];
+let cat = [];
+
+
+function record(){
+
+  var draudio = new Audio('dr.mp3');
+  draudio.play();
+
+  localStorage.setItem("Balance", Number(localStorage.getItem("Balance")) - document.getElementById("amountspent").value);
+
+  localStorage.setItem("Spent", Number(localStorage.getItem("Limit")) - Number(localStorage.getItem("Balance")));
+
+  localStorage.setItem("Transactioncount", Number(localStorage.getItem("Transactioncount")) + 1);
+
+  where[localStorage.getItem("Transactioncount")] = document.getElementById("spentwhere").value;
+  spent[localStorage.getItem("Transactioncount")] = document.getElementById("amountspent").value;
+  cat[localStorage.getItem("Transactioncount")] = localStorage.getItem("Category");
+
+
+  localStorage.setItem("where" + localStorage.getItem("Transactioncount"), where[localStorage.getItem("Transactioncount")])
+
+  localStorage.setItem("spent" + localStorage.getItem("Transactioncount"), spent[localStorage.getItem("Transactioncount")])
+
+
+  localStorage.setItem("cat" + localStorage.getItem("Transactioncount"), cat[localStorage.getItem("Transactioncount")])
+
+  
+}
+
+
 
 
 
