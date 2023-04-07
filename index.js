@@ -3,19 +3,20 @@ function start() {
 
 
   if (localStorage.getItem("Login") == "true") {
-home();
-house();
+    home();
+    house();
     document.getElementById("home").style.display = "block";
+    document.getElementById("navbar").style.display = "flex";
     document.getElementById("login").style.display = "none";
-  } 
+  }
   else {
 
     localStorage.setItem("Day", 1);
 
     var d = new Date();
     let day = d.getDay()
-    
-      localStorage.setItem("Daycount", day);
+
+    localStorage.setItem("Daycount", day);
 
     document.getElementById("login").style.display = "block";
     document.getElementById("home").style.display = "none";
@@ -107,8 +108,8 @@ function closepopup() {
   navigator.vibrate(50);
 
 
-  
-  document.getElementById("navbar").style.display = "block"
+
+  document.getElementById("navbar").style.display = "flex"
 
   location.reload();
 }
@@ -326,7 +327,7 @@ function submit3() {
 
 
 
-    
+
 }
 
 function cal() {
@@ -364,7 +365,7 @@ function house() {
   document.getElementById("wallet1").src = "wallet2.png";
   document.getElementById("wallet1").style.width = "8.5%";
 
- home();
+  home();
 }
 function addd() {
   document.getElementById("cal1").src = "cal2.png";
@@ -407,200 +408,391 @@ function anal() {
 function wall() {
 
   wallet();
-    document.getElementById("cal1").src = "cal2.png";
-    document.getElementById("cal1").style.width = "8.5%";
-  
-    document.getElementById("home1").src = "house2.png";
-    document.getElementById("home1").style.width = "8.5%";
-  
-    document.getElementById("add1").src = "plus2.png";
-    document.getElementById("add1").style.width = "8.5%";
-  
-    document.getElementById("analytics1").src = "ana2.png";
-    document.getElementById("analytics1").style.width = "8.5%";
-  
-    document.getElementById("wallet1").src = "wallet1.png";
-    document.getElementById("wallet1").style.width = "13%";
-  }
+  document.getElementById("cal1").src = "cal2.png";
+  document.getElementById("cal1").style.width = "8.5%";
+
+  document.getElementById("home1").src = "house2.png";
+  document.getElementById("home1").style.width = "8.5%";
+
+  document.getElementById("add1").src = "plus2.png";
+  document.getElementById("add1").style.width = "8.5%";
+
+  document.getElementById("analytics1").src = "ana2.png";
+  document.getElementById("analytics1").style.width = "8.5%";
+
+  document.getElementById("wallet1").src = "wallet1.png";
+  document.getElementById("wallet1").style.width = "13%";
+}
 
 
 
 
-  function home(){
-
-    document.getElementById("home").style.display = "block";
-   
-
-    document.getElementById("calculator").style.display = "none";
-
-    document.getElementById("spendmoney").style.display = "none";
-
-    document.getElementById("analytics").style.display = "none";
-
-    document.getElementById("wallet").style.display = "none";
+function home() {
 
 
+  navigator.vibrate(50)
+
+  document.getElementById("home").style.display = "block";
+
+
+  document.getElementById("calculator").style.display = "none";
+
+  document.getElementById("spendmoney").style.display = "none";
+
+  document.getElementById("analytics").style.display = "none";
+
+  document.getElementById("wallet").style.display = "none";
 
 
 
- 
-    const quoteno = Math.floor(Math.random() * 1643) + 1;
-  
-  
+
+
+
+  const quoteno = Math.floor(Math.random() * 1643) + 1;
+
+
   fetch('https://type.fit/api/quotes')
     .then(response => response.json())
     .then((response) => {
-          
-          
-  document.getElementById("quotetext").innerHTML = response[quoteno].text
-  
-  
-  
-  if(response[quoteno].author == null){
-      document.getElementById("artist").innerHTML = "~ " +  "Unknown"
-  
-  
-  }
-  
-  else{
-  
-      document.getElementById("artist").innerHTML = "~ " +  response[quoteno].author
-  }
-          
-          console.log(response)
-      
-      
-      })
+
+
+      document.getElementById("quotetext").innerHTML = response[quoteno].text
+
+
+
+      if (response[quoteno].author == null) {
+        document.getElementById("artist").innerHTML = "~ " + "Unknown"
+
+
+      }
+
+      else {
+
+        document.getElementById("artist").innerHTML = "~ " + response[quoteno].author
+      }
+
+      console.log(response)
+
+
+    })
     .catch(err => console.error(err));
-  
-  
-  
-    if (localStorage.getItem("Weekly") == "yes") {
-      document.getElementById("mlim1").innerHTML = "Weekly Limit"
-    } else {
-      document.getElementById("mlim1").innerHTML = "Monthly Limit"
-    }
-  
-  
-    document.getElementById("mleft").innerHTML  = "₹" + (Number(localStorage.getItem("Limit")) -  Number(localStorage.getItem("Spent")))
-  
-  
-    document.getElementById("mlim").innerHTML =  "₹" + localStorage.getItem("Limit") 
-  
-    document.getElementById("dayc").innerHTML =  "Day " + Number(localStorage.getItem("Day")) 
-  
-    var d = new Date();
-    let day = d.getDay();
-  
-    if(Number(localStorage.getItem("Daycount")) != Number(day)){
-  
-  
-  localStorage.setItem("Day", Number(localStorage.getItem("Day")) + Number(1));
-  
-  document.getElementById("dayc").innerHTML =  "Day " + Number(localStorage.getItem("Day")) 
-  
-  localStorage.setItem("Daycount", day);
-  
-    }
-  
-  if(localStorage.getItem("Weekly") == "yes"){
-  
-    if(Number(localStorage.getItem("Day"))>7){
-  
+
+
+
+  if (localStorage.getItem("Weekly") == "yes") {
+    document.getElementById("mlim1").innerHTML = "Weekly Limit"
+  } else {
+    document.getElementById("mlim1").innerHTML = "Monthly Limit"
+  }
+
+
+  document.getElementById("mleft").innerHTML = "₹" + (Number(localStorage.getItem("Limit")) - Number(localStorage.getItem("Spent")))
+
+
+  document.getElementById("mlim").innerHTML = "₹" + localStorage.getItem("Limit")
+
+  document.getElementById("dayc").innerHTML = "Day " + Number(localStorage.getItem("Day"))
+
+  var d = new Date();
+  let day = d.getDay();
+
+  if (Number(localStorage.getItem("Daycount")) != Number(day)) {
+
+
+    localStorage.setItem("Day", Number(localStorage.getItem("Day")) + Number(1));
+
+    document.getElementById("dayc").innerHTML = "Day " + Number(localStorage.getItem("Day"))
+
+    localStorage.setItem("Daycount", day);
+
+  }
+
+  if (localStorage.getItem("Weekly") == "yes") {
+
+    if (Number(localStorage.getItem("Day")) > 7) {
+
       localStorage.setItem("Day", Number(1));
-  
-  
+
+
     }
-  
+
   }
-  
-  else{
-    if(Number(localStorage.getItem("Day"))>30){
-  
+
+  else {
+    if (Number(localStorage.getItem("Day")) > 30) {
+
       localStorage.setItem("Day", Number(1));
-  
-  
+
+
     }
-  
-  
-  }
-  
-  
- 
-  }
 
-
-  function spendmoney(){
-
-
-    
-    document.getElementById("home").style.display = "none";
-   
-
-    document.getElementById("calculator").style.display = "none";
-
-    document.getElementById("spendmoney").style.display = "block";
-
-    document.getElementById("analytics").style.display = "none";
-
-    document.getElementById("wallet").style.display = "none";
-
-  }
-
-  function analytics(){
-
-
-    
-    document.getElementById("home").style.display = "none";
-   
-
-    document.getElementById("calculator").style.display = "none";
-
-    document.getElementById("spendmoney").style.display = "none";
-
-    document.getElementById("analytics").style.display = "block";
-
-    document.getElementById("wallet").style.display = "none";
-
-  }
-
-
-  function wallet(){
-
-
-    
-    document.getElementById("home").style.display = "none";
-   
-
-    document.getElementById("calculator").style.display = "none";
-
-    document.getElementById("spendmoney").style.display = "none";
-
-    document.getElementById("analytics").style.display = "none";
-
-    document.getElementById("wallet").style.display = "block";
 
   }
 
 
 
+}
 
-  function calculator(){
+
+function spendmoney() {
+
+  localStorage.setItem("Category", "Others");
+  navigator.vibrate(50)
+
+  document.getElementById("home").style.display = "none";
 
 
-    
-    document.getElementById("home").style.display = "none";
-   
+  document.getElementById("calculator").style.display = "none";
 
-    document.getElementById("calculator").style.display = "block";
+  document.getElementById("spendmoney").style.display = "block";
 
-    document.getElementById("spendmoney").style.display = "none";
+  document.getElementById("analytics").style.display = "none";
 
-    document.getElementById("analytics").style.display = "none";
+  document.getElementById("wallet").style.display = "none";
 
-    document.getElementById("wallet").style.display = "none";
+}
+
+function analytics() {
+
+  navigator.vibrate(50)
+
+  document.getElementById("home").style.display = "none";
+
+
+  document.getElementById("calculator").style.display = "none";
+
+  document.getElementById("spendmoney").style.display = "none";
+
+  document.getElementById("analytics").style.display = "block";
+
+  document.getElementById("wallet").style.display = "none";
+
+}
+
+
+
+function wallet() {
+
+
+  if (localStorage.getItem("Weekly") == "yes") {
+
+    var aaa = "Weekly";
+  }
+  else {
+
+    var aaa = "Monthly";
 
   }
+
+  navigator.vibrate(50)
+
+
+  var percent = (localStorage.getItem("Spent") / localStorage.getItem("Limit")) * 100;
+
+  if (percent >= 0 && percent <= 50) {
+
+    document.getElementById("used1").innerHTML = "Used " + percent + "% of " + aaa + " Limit";
+
+    document.getElementById("balance1").style.backgroundColor =
+      "rgb(17, 161, 24)";
+
+
+    document.getElementById("used1").style.color = "rgb(17, 161, 24)";
+
+  }
+
+
+  else if (percent > 50 && percent <= 75) {
+
+    document.getElementById("used1").innerHTML = "Used " + percent + "% of " + aaa + " Limit";
+
+    document.getElementById("balance1").style.backgroundColor =
+      "rgb(188, 14, 115)";
+
+
+    document.getElementById("used1").style.color = "rgb(188, 14, 115)";
+
+  }
+
+  else if (percent > 75) {
+
+
+    document.getElementById("used1").innerHTML = "Used " + percent + "% of " + aaa + " Limit";
+
+    document.getElementById("balance1").style.backgroundColor =
+      "red";
+
+
+    document.getElementById("used1").style.color = "red";
+
+
+  }
+
+
+
+  document.getElementById("balance1").innerHTML = "₹" + (Number(localStorage.getItem("Limit")) - Number(localStorage.getItem("Spent")));
+
+  document.getElementById("profilee1").src = ava[localStorage.getItem("Avatarcount")]
+
+  document.getElementById("hellon").innerHTML = "Hello, " + localStorage.getItem("Name");
+
+  document.getElementById("home").style.display = "none";
+
+
+  document.getElementById("calculator").style.display = "none";
+
+  document.getElementById("spendmoney").style.display = "none";
+
+  document.getElementById("analytics").style.display = "none";
+
+  document.getElementById("wallet").style.display = "block";
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+function calculator() {
+
+  navigator.vibrate(50)
+
+
+
+
+  document.getElementById("home").style.display = "none";
+
+
+  document.getElementById("calculator").style.display = "block";
+
+  document.getElementById("spendmoney").style.display = "none";
+
+  document.getElementById("analytics").style.display = "none";
+
+  document.getElementById("wallet").style.display = "none";
+
+
+
+}
+
+
+function openemerpopup() {
+
+  navigator.vibrate(50)
+
+  document.getElementById("popup2").style.display = "block"
+
+  document.getElementById("title").innerHTML = "Emergency Submit";
+  document.getElementById("title").style.color = "red";
+
+
+}
+
+function closepopup2() {
+  navigator.vibrate(50)
+
+  document.getElementById("popup2").style.display = "none";
+  document.getElementById("navbar").style.display = "flex";
+  document.getElementById("info1").innerHTML = "After Clicking on Emergency Submit the Amount will not be deducted from your Balance but you will have its data in this app";
+
+  document.getElementById("info2").innerHTML = "You can use this when amount is big and you dont want to deduct it from your limit...";
+
+
+}
+
+function enter() {
+
+  localStorage.setItem("Category", "Entertainment");
+
+  document.getElementById("enter").style.backgroundColor = "#aa25fda8"
+  document.getElementById("food").style.backgroundColor = "#575d6955"
+  document.getElementById("shop").style.backgroundColor = "#575d6955"
+  document.getElementById("health").style.backgroundColor = "#575d6955"
+  document.getElementById("study").style.backgroundColor = "#575d6955"
+  document.getElementById("others").style.backgroundColor = "#575d6955"
+
+
+}
+
+
+function food() {
+
+  localStorage.setItem("Category", "Food");
+
+  document.getElementById("food").style.backgroundColor = "#aa25fda8"
+  document.getElementById("enter").style.backgroundColor = "#575d6955"
+  document.getElementById("shop").style.backgroundColor = "#575d6955"
+  document.getElementById("health").style.backgroundColor = "#575d6955"
+  document.getElementById("study").style.backgroundColor = "#575d6955"
+  document.getElementById("others").style.backgroundColor = "#575d6955"
+
+
+}
+
+function shop() {
+
+  localStorage.setItem("Category", "Shopping");
+
+  document.getElementById("shop").style.backgroundColor = "#aa25fda8"
+  document.getElementById("enter").style.backgroundColor = "#575d6955"
+  document.getElementById("food").style.backgroundColor = "#575d6955"
+  document.getElementById("health").style.backgroundColor = "#575d6955"
+  document.getElementById("study").style.backgroundColor = "#575d6955"
+  document.getElementById("others").style.backgroundColor = "#575d6955"
+
+
+}
+
+function health() {
+
+  localStorage.setItem("Category", "Health");
+
+  document.getElementById("health").style.backgroundColor = "#aa25fda8"
+  document.getElementById("enter").style.backgroundColor = "#575d6955"
+  document.getElementById("food").style.backgroundColor = "#575d6955"
+  document.getElementById("shop").style.backgroundColor = "#575d6955"
+  document.getElementById("study").style.backgroundColor = "#575d6955"
+  document.getElementById("others").style.backgroundColor = "#575d6955"
+
+
+}
+
+function study() {
+
+  localStorage.setItem("Category", "Study");
+
+  document.getElementById("study").style.backgroundColor = "#aa25fda8"
+  document.getElementById("enter").style.backgroundColor = "#575d6955"
+  document.getElementById("food").style.backgroundColor = "#575d6955"
+  document.getElementById("shop").style.backgroundColor = "#575d6955"
+  document.getElementById("health").style.backgroundColor = "#575d6955"
+  document.getElementById("others").style.backgroundColor = "#575d6955"
+
+
+}
+
+
+
+function others() {
+
+  localStorage.setItem("Category", "Others");
+
+  document.getElementById("others").style.backgroundColor = "#aa25fda8"
+  document.getElementById("enter").style.backgroundColor = "#575d6955"
+  document.getElementById("food").style.backgroundColor = "#575d6955"
+  document.getElementById("shop").style.backgroundColor = "#575d6955"
+  document.getElementById("study").style.backgroundColor = "#575d6955"
+  document.getElementById("health").style.backgroundColor = "#575d6955"
+
+
+}
 
 
 

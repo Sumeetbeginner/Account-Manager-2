@@ -575,13 +575,13 @@ footer{
 #mleft{
 
     background-color: red;
-    width: 50%;
-    padding: 5% 20%;
+    width: fit-content;
+    padding: 5% 15%;
     font-size: 30px;
     border-radius: 10px;
     text-align: center;
     margin-top: -5%;
-    margin-left: 13%;
+    margin-left: 9%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -591,7 +591,7 @@ footer{
 #mlim{
 
     background-color: rgb(12, 183, 43);
-    width: 50%;
+    width: fit-content;
     padding: 5% 15%;
     font-size: 30px;
     border-radius: 10px;
@@ -635,3 +635,351 @@ footer{
     
 }
 
+#inswallet{
+
+
+    width: 100%;
+    height: 35vh;
+    background-color: #575d6955;
+
+    border-radius: 0px 0px 20px 25px;
+
+}
+
+#profilee{
+
+    display: flex;
+}
+
+#profilee1{
+
+    width: 13%;
+    height: 47px;
+
+    
+    margin-right: auto;
+    margin-left: 3.5%;
+    margin-top: 3%;
+}
+
+#hellon{
+
+    font-size: 18px;
+    color: white;
+
+    margin-right: auto;
+    margin-left: -4.5%;
+    margin-top: 5%;
+}
+
+#historyb{
+
+
+    
+    width: 12%;
+    height: 44px;
+
+    margin-left: auto;
+    margin-right: 3.5%;
+    margin-top: 3%;
+}
+
+
+#home{
+
+    position: fixed;
+  
+}
+
+#wallet{
+
+    position: fixed;
+width: 100%;
+}
+
+#balance{
+
+    color: white;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+
+#balance1{
+
+    font-size: 40px;
+margin-top: -2%;
+
+width: fit-content;
+
+padding: 1% 7%;
+border-radius: 14px;
+display: flex;
+justify-content: center;
+align-items: center;
+text-align: center;
+margin-left: auto;
+margin-right: auto;
+
+}
+
+#used1{
+
+    font-size: 20px;
+    text-align: center;
+
+margin-top: -3%;
+}
+
+#trans1{
+
+    width: 90%;
+    height: 9vh;
+    background-color: #575d6955;
+    border-radius: 10px;
+
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center;
+    align-items: center;
+margin-top: 3%;
+}
+
+#lastt{
+
+
+margin-top: -3%;
+height: 36vh;
+overflow-y: scroll;
+
+}
+
+::-webkit-scrollbar{
+
+    display: none;
+}
+
+#lt{
+
+    color: white;
+    text-align: center;
+  
+color: cyan;
+}
+
+#sm{
+
+    color: cyan;
+    text-align: center;
+    font-size: 17px;
+    text-decoration: underline;
+}
+
+
+#cat11{
+
+    display: flex;
+    color: white;
+    justify-content: center;
+    align-items: center;
+    font-size: 15px;
+    margin-top: -5%;
+    
+}
+
+#food{
+
+    margin-left: auto;
+    margin-right: 4%;
+    background-color: #575d6955;
+    padding: 3% 4%;
+    border-radius: 13px;
+}
+
+#enter{
+
+   margin-right: auto;
+   margin-left: 2.5%;
+    background-color: #575d6955;
+    padding: 3% 4%;
+    border-radius: 13px;
+
+}
+#cat{
+
+    color: white;
+    font-size: 15px;
+}
+
+#cat21{
+justify-content: center;
+align-items: center;
+    display: flex;
+margin-top: -5%;
+}
+
+#shop{
+
+    margin-left: auto;
+    margin-right: 4%;
+    background-color: #575d6955;
+    padding: 3% 5%;
+    border-radius: 13px;
+}
+
+#health{
+
+   margin-right: auto;
+   margin-left: 2.5%;
+    background-color: #575d6955;
+    padding: 3% 5%;
+    border-radius: 13px;
+
+}
+
+#study{
+
+    margin-left: auto;
+    margin-right: 4%;
+    background-color: #575d6955;
+    padding: 3% 7%;
+    border-radius: 13px;
+}
+
+#others{
+
+   margin-right: auto;
+   margin-left: 2.5%;
+    background-color: #575d6955;
+    padding: 3% 6%;
+    border-radius: 13px;
+
+}
+
+#cat{
+
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+#cc{
+
+    color: rgb(197, 191, 255);
+    font-size: 25px;
+}
+
+#cat31{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top: -5%;
+}
+
+#amountspent{
+
+    width: 55%;
+}
+
+#submitamount{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    border-color: #aa25fda8;
+    width: 50%;
+    height: 6vh;
+    border-radius: 17px;
+    color: white;
+    font-size: 25px;
+    margin-top: 8%;
+    background-color: #aa25fda8;
+}
+
+
+
+#emersubmitamount{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    border-color: #f96d6da8;
+    width: 70%;
+    height: 6vh;
+    border-radius: 17px;
+    color: white;
+    font-size: 25px;
+    margin-top: 8%;
+    margin-right: 0%;
+    background-color: hsla(0, 100%, 56%, 0.659);
+}
+
+#i{
+
+    display: flex;
+    justify-content: center;
+align-items: center;
+}
+
+#i1{
+
+    width: 7%;
+    height: 25px;
+    opacity: 0.7;
+    margin-top: 8%;
+    margin-right: 10%;
+    margin-left: 4%;
+}
+
+
+
+#popup2{
+
+    position: absolute;
+    width: 90%;
+    height: 35vh;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    border-radius: 20px;
+    top: 25vh;
+    background-color: rgb(244, 211, 242);
+    display: none;
+}
+
+#title{
+
+    margin-top: -5%;
+    text-align: start;
+    margin-left: 5%;
+    margin-top: -13%;
+    text-decoration: underline;
+}
+
+#info1{
+
+    font-size: 17px;
+    margin-left: 5%;
+    width: 90%;
+    
+}
+
+#info2{
+
+    font-size: 17px;
+    margin-left: 5%;
+    width: 90%;
+    color: rgb(0, 85, 255) ;
+
+}
