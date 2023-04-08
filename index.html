@@ -173,7 +173,7 @@
             <div id="sett">
 
                 <img onclick="opensett()" src="setting.png" alt="" id="setting">
-                <img src="" alt="" id="account">
+                <img onclick="account()" src="" alt="" id="account">
 
 
             </div>
@@ -254,7 +254,127 @@
         </div>
 
         <div id="calculator">
-            Calculator
+
+
+
+
+
+            <center>
+                <div id="container1">
+
+                    <h1>
+                        <div id="heading3">
+
+                            <br>
+
+                        </div>
+                    </h1>
+                    <div>
+
+                        <input id="input1" type="text" placeholder="0">
+                    </div>
+
+                    <div id="row1">
+
+                        <button id="ac1" onclick="ac1(),play2()" class="btn"
+                            style="color: rgb(255, 255, 255) ; background-color:
+                            rgb(255, 0, 0) ">
+                            AC
+                        </button>
+                        <button class="btn" onclick="back(),play()"
+                            style="color: rgb(30, 217, 170) ; ">
+                            <big>⬅</big>
+                        </button>
+                        <button class="btn" onclick="num2('^'),play()"
+                            style="color: rgb(30, 217, 170) ; ">
+                            x<sup>2</sup>
+                        </button>
+                        <button class="btn" onclick="num('/'),play()"
+                            style="color: rgb(30, 217, 170) ; ">
+                            /
+                        </button>
+                    </div>
+
+                    <div id="row2">
+
+                        <button class="btn" onclick="num(1),play()">
+                            1
+                        </button>
+                        <button class="btn" onclick="num(2),play()">
+                            2
+                        </button>
+                        <button class="btn" onclick="num(3),play()">
+                            3
+                        </button>
+                        <button class="btn" onclick="num('+'),play()"
+                            style="color: rgb(30, 217, 170) ; ">
+                            +
+                        </button>
+                    </div>
+
+                    <div id="row3">
+
+                        <button class="btn" onclick="num(4),play()">
+                            4
+                        </button>
+                        <button onclick="num(5),play()" class="btn">
+                            5
+                        </button>
+                        <button class="btn" onclick="num(6),play()">
+                            6
+                        </button>
+                        <button class="btn" onclick="num('-'),play()"
+                            style="color: rgb(30, 217, 170) ; ">
+                            -
+                        </button>
+
+                        <div id="row5">
+
+                            <button class="btn" onclick="num(7),play()">
+                                7
+                            </button>
+                            <button class="btn" onclick="num(8),play()">
+                                8
+                            </button>
+                            <button class="btn" onclick="num(9),play()">
+                                9
+                            </button>
+                            <button class="btn" onclick="num('*'),play()"
+                                style="color: rgb(30, 217, 170) ; ">
+                                ×
+                            </button>
+
+                            <div id="row5">
+
+                                <button class="btn" onclick="num3('%'),play()">
+                                    %
+                                </button>
+                                <button class="btn" onclick="num(0),play()">
+                                    0
+                                </button>
+                                <button class="btn" onclick="num('.'),play()">
+                                    .
+                                </button>
+                                <button class="btn" onclick="total(),play()"
+                                    style="color: rgb(255, 255, 255) ;
+                                    background-color: rgb(33, 189, 124); ">
+                                    =
+                                </button>
+
+
+                            </div>
+
+
+                        </div>
+
+                        <script src="cal.js"></script>
+                    </center>
+
+                </body>
+
+            </html>
+
+
         </div>
 
         <div id="spendmoney">
@@ -388,7 +508,8 @@
                     <h2 id="hellon"> </h2>
 
 
-                    <img onclick="openhis()" id="historyb" src="history.png" alt="">
+                    <img onclick="openhis()" id="historyb" src="history.png"
+                        alt="">
 
                 </div>
 
@@ -545,12 +666,12 @@
 
                             <div class="avachange" id="avatarchange">
 
-                                <img class="avaleft" onclick="left()"
+                                <img class="avaleft" onclick="left1()"
                                     src="left.png" alt=""
                                     id="left">
-                                <img src="" alt="" id="avapic"
+                                <img src="" alt="" id="avapic1"
                                     class="avatarpic">
-                                <img class="avaright" onclick="right()"
+                                <img class="avaright" onclick="right1()"
                                     src="right.png" alt=""
                                     id="right">
 
@@ -563,9 +684,15 @@
 
                         </div>
 
+<input placeholder="Change Name" type="text" id="changename">
+<input placeholder="Change Username" type="text" id="changeun">
+<input placeholder="Change Password" type="password" id="changep">
+<input placeholder="Change Profession" type="text" id="changepr">
 
+<button onclick="changethings()" id="changethings">
+Change
 
-
+</button>
                     </div>
 
 
@@ -579,12 +706,22 @@
 
                         <h2 class="nameco" id="namedis">Display</h2>
 
-                        <img class="openpn" src="open.png" alt="" id="opendis">
-                        <img class="closepn" src="closed.png" alt=""
+                        <img onclick="opendis()" class="openpn" src="open.png" alt="" id="opendis">
+                        <img onclick="closedis()"  class="closepn" src="closed.png" alt=""
                             id="closedis">
 
                     </div>
 
+
+                    <div id="invisdis">
+
+
+                        <h2 id="darkmode">We are working on more themes...</h2>
+                        
+
+
+
+                    </div>
 
                 </div>
 
@@ -595,9 +732,42 @@
 
                         <h2 class="nameco" id="nameimp">Important</h2>
 
-                        <img class="openpn" src="open.png" alt="" id="openimp">
-                        <img class="closepn" src="closed.png" alt=""
+                        <img onclick="openimp()" class="openpn" src="open.png" alt="" id="openimp">
+                        <img onclick="closeimp()" class="closepn" src="closed.png" alt=""
                             id="closeimp">
+
+                    </div>
+
+
+                    <div id="invisedit">
+
+<h2 id="changelimit1">Change Limit</h2>
+
+<div id="setlim2">
+
+    <img onclick="minus()" src="minus.png" alt=""
+        id="minus">
+    <h2 id="limitchange"></h2>
+    <img onclick="plus()" src="plus.png" alt=""
+        id="plus">
+
+
+</div>
+
+<button onclick="resetb()" id="resetb">
+Reset Balance
+
+
+
+</button>
+
+<button onclick="resetd()" id="resetday">
+    Reset Day
+    
+    
+    
+    </button>
+
 
                     </div>
 
@@ -612,12 +782,30 @@
 
                         <h2 class="nameco" id="namepre">Premium</h2>
 
-                        <img class="openpn" src="open.png" alt="" id="openpre">
-                        <img class="closepn" src="closed.png" alt=""
+                        <img onclick="openpre()" class="openpn" src="open.png" alt="" id="openpre">
+                        <img onclick="closepre()" class="closepn" src="closed.png" alt=""
                             id="closepre">
 
                     </div>
 
+
+                    <div id="invispre">
+
+
+                        <center>
+                            <script id="cofee" type="text/javascript"
+                                src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js"
+                                data-name="bmc-button" data-slug="sumeetgupta"
+                                data-color="#5F7FFF" data-emoji="😎" data-font="Cookie"
+                                data-text="Everything is free for now" data-outline-color="#000000"
+                                data-font-color="#ffffff" data-coffee-color="#FFDD00"></script>
+                        </center>
+
+
+
+
+
+                    </div>
 
 
                 </div>
@@ -628,26 +816,38 @@
 
                         <h2 class="nameco" id="namecon">Contact </h2>
 
-                        <img class="openpn" src="open.png" alt="" id="opencon">
-                        <img class="closepn" src="closed.png" alt=""
+                        <img onclick="opencontact()" class="openpn" src="open.png" alt="" id="opencon">
+                        <img onclick="closecontact()" class="closepn" src="closed.png" alt=""
                             id="closecon">
                     </div>
 
+<div id="inviscont">
+
+
+
+<img onclick="openmail()" src="gmail.png" alt="" id="gmailme">
+
+
+
+
+</div>
+
+                </div>
+
+              
 
 
                 </div>
 
                 <div id="helpflex">
 
+                   
+
                     <img onclick="helpplz()" src="question (1).png" alt=""
                         id="helpplz1">
 
-
-                </div>
-
-
-                
             </div>
+
 
 
 
@@ -711,36 +911,101 @@
             <button id="closehelp" onclick="closehelp()">Ok</button>
         </div>
 
-<div id="historyy">
+        <div id="historyy">
 
-<div id="historytop">
+            <div id="historytop">
 
-<img  onclick="closehis()" src="backb.png" alt="" id="closehis">
+                <img onclick="closehis()" src="backb.png" alt="" id="closehis">
+                <h2 id="histit">History</h2>
+            </div>
 
-<h2 id="histit">History</h2>
-</div>
-
-<div id="divww">
-<div id="historyform">
-
-
-
-
-    
-
-</div>
-
-
-
-
-</div>
+            <div id="divww">
+                <div id="historyform">
 
 
 
 
 
 
-</div>
+                </div>
+
+
+
+
+            </div>
+
+
+
+
+
+
+        </div>
+
+
+
+
+
+        <div id="accountpage">
+
+            <div id="flexacc">
+                <img onclick="exittt()" src="backb.png" alt="" id="exitt">
+
+                <h2 id="acctit">Account</h2>
+
+            </div>
+
+            <img src="" alt="" id="profacc1">
+
+            <h2 id="nameacc1"></h2>
+
+            <h2 id="unacc1"></h2>
+
+
+            <h2 id="profacc2"></h2>
+
+            <h2 id="wmacc"></h2>
+            <h2 id="limitacc"></h2>
+
+
+            <div id="sbi">
+
+                <div id="sbi1">
+
+                    <h2 id="sbi11">Spent</h2>
+
+                    <h2 id="sbi12"></h2>
+
+
+                </div>
+
+
+                <div id="sbi2">
+
+
+                    <h2 id="sbi21">Balance</h2>
+
+                    <h2 id="sbi22"></h2>
+
+
+
+                </div>
+
+
+
+            </div>
+
+
+            <h2 id="transdone"></h2>
+
+            <center>
+                <script id="cofee" type="text/javascript"
+                    src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js"
+                    data-name="bmc-button" data-slug="sumeetgupta"
+                    data-color="#5F7FFF" data-emoji="😎" data-font="Cookie"
+                    data-text="Creator" data-outline-color="#000000"
+                    data-font-color="#ffffff" data-coffee-color="#FFDD00"></script>
+            </center>
+        </div>
 
 
 
@@ -757,7 +1022,7 @@
             <img onclick="wall()" src="wallet2.png" alt="" id="wallet1">
         </footer>
 
-        <script src="index.js" ></script>
+        <script src="index.js"></script>
 
         <script
             src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">

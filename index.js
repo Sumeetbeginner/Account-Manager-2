@@ -207,6 +207,12 @@ function submit2() {
 }
 
 function plus() {
+
+  setTimeout(() => {
+    document.getElementById("limitchange").innerHTML = "₹" + localStorage.getItem("Limit");
+  }, 100);
+
+ 
   localStorage.setItem(
     "Limit",
     Number(localStorage.getItem("Limit")) + Number(10)
@@ -217,6 +223,9 @@ function plus() {
 }
 
 function minus() {
+  setTimeout(() => {
+    document.getElementById("limitchange").innerHTML = "₹" + localStorage.getItem("Limit");
+  }, 100);
   if (localStorage.getItem("Limit") == "0") {
     localStorage.setItem("Limit", localStorage.getItem("Limit"));
 
@@ -290,6 +299,8 @@ function left() {
 function right() {
 
   document.getElementById("avapic").src = ava[localStorage.getItem("Avatarcount")];
+
+
   navigator.vibrate(50);
 
   if (Number(localStorage.getItem("Avatarcount")) >= 29) {
@@ -307,6 +318,62 @@ function right() {
       ava[Number(localStorage.getItem("Avatarcount"))];
   }
 }
+
+
+function left1() {
+
+
+  navigator.vibrate(50);
+
+  if (Number(localStorage.getItem("Avatarcount")) <= 0) {
+    localStorage.setItem("Avatarcount", 29);
+    document.getElementById("avapic1").src = ava[localStorage.getItem("Avatarcount")];
+
+ 
+  } else {
+    localStorage.setItem(
+      "Avatarcount",
+      Number(localStorage.getItem("Avatarcount")) - Number(1)
+      
+    );
+
+    document.getElementById("avapic1").src = ava[localStorage.getItem("Avatarcount")];
+
+  }
+}
+
+function right1() {
+  document.getElementById("avapic1").src = ava[localStorage.getItem("Avatarcount")];
+
+  
+ 
+  navigator.vibrate(50);
+
+  if (Number(localStorage.getItem("Avatarcount")) >= 29) {
+    document.getElementById("avapic1").src = ava[localStorage.getItem("Avatarcount")];
+
+  
+    localStorage.setItem("Avatarcount", 0);
+
+ 
+  } else {
+
+    setTimeout(() => {
+      
+    document.getElementById("avapic1").src = ava[localStorage.getItem("Avatarcount")];
+
+    }, 100);
+
+  
+    localStorage.setItem(
+      "Avatarcount",
+      Number(localStorage.getItem("Avatarcount")) + Number(1)
+    );
+
+  
+  }
+}
+
 
 function submit3() {
 
@@ -1442,6 +1509,13 @@ else if(localStorage.getItem("Category") == "Others" ){
 
 function opensett(){
 
+
+
+
+
+
+
+
 document.getElementById("home").style.display = "none";
 
 document.getElementById("settings").style.display = "block";
@@ -1451,11 +1525,16 @@ document.getElementById("navbar").style.display = "none";
 
 navigator.vibrate(50)
 
+document.getElementById("avapic1").src = ava[localStorage.getItem("Avatarcount")];
+
 
 
 }
 
 function nowayhome(){
+home()
+
+  document.getElementById("account").src = ava[localStorage.getItem("Avatarcount")];
 
 navigator.vibrate(50);
 document.getElementById("home").style.display = "block";
@@ -1476,7 +1555,7 @@ function openacc(){
 
   document.getElementById("closeacc").style.display = "block"
 
-  document.getElementById("accedit").style.height = "60vh"
+  document.getElementById("accedit").style.height = "75vh"
 
   
   document.getElementById("invis").style.display = "block"
@@ -1634,6 +1713,379 @@ element4.innerHTML = tempstr
 element5.innerHTML = "-₹" + localStorage.getItem("spent" + i);
 
 }
+
+
+function account(){
+
+
+document.getElementById("accountpage").style.display = "block";
+
+document.getElementById("home").style.display = "none";
+
+document.getElementById("navbar").style.display = "none";
+
+navigator.vibrate(50)
+
+document.getElementById("profacc1").src = ava[localStorage.getItem("Avatarcount")];
+
+
+document.getElementById("nameacc1").innerHTML = localStorage.getItem("Name");
+
+document.getElementById("unacc1").innerHTML = "@" + localStorage.getItem("Username")
+
+
+document.getElementById("profacc2").innerHTML = "Working as a " + localStorage.getItem("Profession");
+
+
+document.getElementById("limitacc").innerHTML = "₹" + localStorage.getItem("Limit");
+
+if(localStorage.getItem("Weekly") == "yes"){
+
+  document.getElementById("wmacc").innerHTML = "Weekly Limit" ;
+}
+else{
+
+  document.getElementById("wmacc").innerHTML = "Monthly Limit" ;
+}
+
+document.getElementById("sbi12").innerHTML = "₹" + localStorage.getItem("Spent");
+document.getElementById("sbi22").innerHTML = "₹" + localStorage.getItem("Balance");
+
+
+document.getElementById("transdone").innerHTML = "Number of Transactions done : " + (Number(localStorage.getItem("Transactioncount"))+1);
+
+}
+
+
+function exittt(){
+  navigator.vibrate(50)
+
+ 
+
+  document.getElementById("accountpage").style.display = "none";
+
+  document.getElementById("home").style.display = "block";
+  
+  document.getElementById("navbar").style.display = "flex";
+
+
+
+}
+
+
+
+let percent = false
+function ac1() {
+    percent = false
+    document.getElementById('input1').value = ''
+    
+    document.getElementById('input1').style.fontSize="40px";
+   
+
+}
+
+
+
+function num(n) {
+    document.getElementById('input1').value += n
+
+}
+
+function total() {
+
+navigator.vibrate(50)
+
+    if (percent) {
+        let result = document.getElementById('input1').value;
+
+
+
+
+        let ln = result.length
+        let i = result.indexOf('%');
+        let firstH = result.substr(0, i);
+        let secH = result.substr(i + 1, ln);
+
+        document.getElementById('input1').value = ((secH * 100) / firstH) + "%";
+
+    }
+
+    if (!percent) {
+        let result = document.getElementById('input1').value;
+        let fres = result.replace("^", "**")
+        document.getElementById('input1').value = eval(fres);
+    }
+
+}
+function num2(n) {
+
+
+    document.getElementById('input1').value += n;
+
+
+}
+
+function back() {
+
+    let str = document.getElementById('input1').value
+    let res = str.slice(0, -1)
+    document.getElementById('input1').value = res
+
+
+
+
+
+}
+
+function num3(n) {
+
+    percent = true
+
+    document.getElementById('input1').value += n;
+
+
+}
+
+
+
+let myMusic = document.getElementById("music");
+function play() {
+
+  navigator.vibrate(50)
+    myMusic.play();
+    myMusic.volume=0.3
+}
+let myMusic2 = document.getElementById("music1");
+function play2() {
+
+  navigator.vibrate(50)
+    myMusic2.play();
+}
+
+setInterval(() => {
+   let size= document.getElementById('input1').value;
+
+   if(size.length>=11){
+    document.getElementById('input1').style.fontSize="30px";
+   }
+   
+   if(size.length>=18){
+    document.getElementById('input1').style.fontSize="15px";
+   }
+}, 100);
+
+
+
+
+//screen
+
+var winH = window.innerHeight + "px";
+document.getElementById('container1').style.height=winH
+
+
+function changethings(){
+
+
+if(document.getElementById("changename").value != ""){
+
+  localStorage.setItem("Name", document.getElementById("changename").value);
+  
+  setTimeout(() => {
+    document.getElementById("changename").value = "";
+  }, 100);
+  
+
+  }
+
+  if(document.getElementById("changeun").value != ""){
+
+    localStorage.setItem("Username", document.getElementById("changeun").value);
+    
+    setTimeout(() => {
+      document.getElementById("changeun").value = "";
+    }, 100);
+    
+
+    }
+
+    if(document.getElementById("changep").value != ""){
+
+      localStorage.setItem("Password", document.getElementById("changep").value);
+      
+      setTimeout(() => {
+        document.getElementById("changep").value = "";
+      }, 100);
+      
+  
+      }
+
+
+      if(document.getElementById("changepr").value != ""){
+
+        localStorage.setItem("Profession", document.getElementById("changepr").value);
+        
+        setTimeout(() => {
+          document.getElementById("changepr").value = "";
+        }, 100);
+        
+  
+        }
+
+
+}
+
+
+function opendis(){
+
+  document.getElementById("opendis").style.display = "none"
+
+  document.getElementById("closedis").style.display = "block"
+
+  document.getElementById("displayedit").style.height = "20vh"
+
+  
+  document.getElementById("invisdis").style.display = "block"
+
+
+}
+
+
+function closedis(){
+
+ 
+
+  document.getElementById("opendis").style.display = "block"
+
+  document.getElementById("closedis").style.display = "none"
+
+  document.getElementById("displayedit").style.height = "9vh"
+
+  document.getElementById("invisdis").style.display = "none"
+
+}
+
+function openimp(){
+
+  document.getElementById("openimp").style.display = "none"
+
+  document.getElementById("closeimp").style.display = "block"
+
+  document.getElementById("importantedit").style.height = "50vh"
+
+  
+  document.getElementById("invisedit").style.display = "block"
+
+  document.getElementById("limitchange").innerHTML = "₹" + localStorage.getItem("Limit");
+
+
+}
+
+function closeimp(){
+
+  document.getElementById("openimp").style.display = "block"
+
+  document.getElementById("closeimp").style.display = "none"
+
+  document.getElementById("importantedit").style.height = "9vh"
+
+  
+  document.getElementById("invisedit").style.display = "none"
+
+
+
+}
+
+function openpre(){
+
+ 
+
+  document.getElementById("openpre").style.display = "none"
+
+  document.getElementById("closepre").style.display = "block"
+
+  document.getElementById("premiumedit").style.height = "22vh"
+
+  document.getElementById("invispre").style.display = "block"
+
+}
+
+
+function closepre(){
+
+ 
+
+  document.getElementById("openpre").style.display = "block"
+
+  document.getElementById("closepre").style.display = "none"
+
+  document.getElementById("premiumedit").style.height = "9vh"
+
+  document.getElementById("invispre").style.display = "none"
+
+}
+
+
+
+
+function resetb(){
+
+localStorage.setItem("Balance", localStorage.getItem("Limit"));
+
+localStorage.setItem("Spent", 0);
+
+alert("Balance is Reseted! ")
+
+}
+
+function resetd(){
+
+
+  localStorage.setItem("Day", 1);
+
+  alert("Day Reseted!")
+}
+
+
+
+
+function opencontact(){
+
+ 
+  document.getElementById("opencon").style.display = "none"
+
+  document.getElementById("closecon").style.display = "block"
+
+  document.getElementById("contactedit").style.height = "22vh"
+
+  document.getElementById("inviscont").style.display = "block"
+
+}
+
+
+function closecontact(){
+
+ 
+
+  document.getElementById("opencon").style.display = "block"
+
+  document.getElementById("closecon").style.display = "none"
+
+  document.getElementById("contactedit").style.height = "9vh"
+
+  document.getElementById("inviscont").style.display = "none"
+
+}
+
+
+function openmail(){
+
+window.location = "mailto:sumeetgupta3690@gmail.com"
+
+
+
+
+}
+
 
 
 
