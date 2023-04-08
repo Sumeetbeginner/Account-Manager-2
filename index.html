@@ -1,221 +1,669 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <!-- Startup Page -->
-</head>
-<link rel="stylesheet" href="index.css">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <!-- Startup Page -->
+    </head>
+    <link rel="stylesheet" href="index.css">
 
-<body onload="start()">
+    <body onload="start()">
 
-    <div id="popup">
+        <div id="popup">
 
-        <img onclick="closepopup()" src="close.png" alt="" id="close">
+            <img onclick="closepopup()" src="close.png" alt="" id="close">
 
-        <h2 id="datarec">Data Recorded 🎉</h2>
+            <h2 id="datarec">Data Recorded 🎉</h2>
 
-        <h3 id="name1">
+            <h3 id="name1">
             </h2>
             <img src="" alt="" id="pic1">
             <h3 id="name2">
+            </h2>
+            <h3 id="name3">
+            </h2>
+            <h3 id="name4">
+            </h2>
+            <h3 id="name5">
+            </h2>
+            <h3 id="name6">
+            </h2>
+            <h3 id="name7">
+            </h2>
+
+
+        </div>
+
+        <div id="login">
+            <h2 id="welcome1">Welcome!</h2>
+            <h2 id="welcome2">Account Manager</h2>
+
+            <div id="details">
+
+                <div id="form">
+                    <h1 id="setup">Setup</h1>
+
+
+
+                    <input placeholder=" Name" type="text" id="name" required>
+                    <input placeholder=" Username" id="un" type="text" required>
+                    <div id="pass">
+                        <input placeholder=" Password" id="password"
+                            type="password" required>
+
+                        <img onclick="showpass()" src="eye.png" alt="" id="eye">
+                        <img onclick="hidepass()" src="invisible.png" alt=""
+                            id="eyeclose">
+                    </div>
+
+                    <br>
+                    <select name="Profession" id="prof" required>
+
+                        <option value="nothing">Select Profession</option>
+                        <option value="Student">Student</option>
+                        <option value="Teacher">Teacher</option>
+                        <option value="Engineer">Engineer</option>
+                        <option value="Employee">Employee</option>
+                        <option value="Businessman">Businessman</option>
+                        <option value="Scientist">Scientist</option>
+                        <option value="Doctor">Doctor</option>
+                        <option value="Accountant">Accountant</option>
+                        <option value="Others">Others</option>
+                    </select>
+                    <br>
+
+                    <button onclick="submit()" id="submitform">Submit</button>
+                </div>
+
+
+                <div id="form2">
+
+                    <div id="limits">
+
+                        <h2 id="lims">Select Limit</h2>
+
+                        <div id="lims2">
+
+                            <div onclick="weekly()" id="weekly1">
+
+                                <h2>Weekly</h2>
+
+                            </div>
+
+                            <div onclick="monthly()" id="monthly1">
+
+                                <h2>Monthly</h2>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div id="setlim">
+
+
+                        <h2 id="setlim1">Set Limit</h2>
+
+                        <div id="setlim2">
+
+                            <img onclick="minus()" src="minus.png" alt=""
+                                id="minus">
+                            <h2 id="limit1"></h2>
+                            <img onclick="plus()" src="plus.png" alt=""
+                                id="plus">
+
+
+                        </div>
+
+
+
+
+
+                    </div>
+
+                    <button onclick="submit2()" id="submit2">Submit</button>
+                </div>
+
+                <div id="form3">
+
+                    <div id="cavatar">
+                        <h2 id="chooseava">Choose Avatar</h2>
+                        <div id="avatarchange">
+
+                            <img onclick="left()" src="left.png" alt=""
+                                id="left">
+                            <img src="ava1.png" alt="" id="avatarpic">
+                            <img onclick="right()" src="right.png" alt=""
+                                id="right">
+
+
+
+
+                        </div>
+
+
+                        <button onclick="submit3()" id="submit3">Submit</button>
+                    </div>
+
+
+
+                </div>
+
+
+
+
+                <div id="dot">
+
+                    <div id="dot1"></div>
+                    <div id="dot2"></div>
+                    <div id="dot3"></div>
+
+                </div>
+            </div>
+        </div>
+
+        <div id="home">
+
+
+
+            <div id="sett">
+
+                <img onclick="opensett()" src="setting.png" alt="" id="setting">
+                <img src="" alt="" id="account">
+
+
+            </div>
+
+
+            <div id="quote">
+
+
+                <h2 id="quotetext">
+
+
+
                 </h2>
-                <h3 id="name3">
-                    </h2>
-                    <h3 id="name4">
-                        </h2>
-                        <h3 id="name5">
-                            </h2>
-                            <h3 id="name6">
-                                </h2>
-                                <h3 id="name7">
-                                    </h2>
 
-
-    </div>
-
-    <div id="login">
-        <h2 id="welcome1">Welcome!</h2>
-        <h2 id="welcome2">Account Manager</h2>
-
-        <div id="details">
-
-            <div id="form">
-                <h1 id="setup">Setup</h1>
+                <h3 id="artist">
 
 
 
-                <input placeholder=" Name" type="text" id="name" required>
-                <input placeholder=" Username" id="un" type="text" required>
-                <div id="pass">
-                    <input placeholder=" Password" id="password" type="password" required>
+                </h3>
 
-                    <img onclick="showpass()" src="eye.png" alt="" id="eye">
-                    <img onclick="hidepass()" src="invisible.png" alt="" id="eyeclose">
+
+            </div>
+
+            <div id="moneysl">
+
+
+
+                <div id="moneyspent">
+
+                    <h2>Money Left</h2>
+                    <h2 id="mleft"> </h2>
+
+
+                </div>
+                <div id="moneylimit">
+                    <h2 id="mlim1"> Limit</h2>
+                    <h2 id="mlim"></h2>
+
                 </div>
 
-                <br>
-                <select name="Profession" id="prof" required>
 
-                    <option value="nothing">Select Profession</option>
-                    <option value="Student">Student</option>
-                    <option value="Teacher">Teacher</option>
-                    <option value="Engineer">Engineer</option>
-                    <option value="Employee">Employee</option>
-                    <option value="Businessman">Businessman</option>
-                    <option value="Scientist">Scientist</option>
-                    <option value="Doctor">Doctor</option>
-                    <option value="Accountant">Accountant</option>
-                    <option value="Others">Others</option>
-                </select>
-                <br>
 
-                <button onclick="submit()" id="submitform">Submit</button>
+
+
+            </div>
+
+            <div id="day">
+
+                <h2 id="dayc"></h2>
+
+            </div>
+
+            <div id="analhome">
+
+
+                <canvas height="308" id="myChart2"></canvas>
+
+
+
+
             </div>
 
 
-            <div id="form2">
 
-                <div id="limits">
 
-                    <h2 id="lims">Select Limit</h2>
 
-                    <div id="lims2">
+            <div id="invisible">
 
-                        <div onclick="weekly()" id="weekly1">
 
-                            <h2>Weekly</h2>
+
+            </div>
+
+
+
+
+
+
+        </div>
+
+        <div id="calculator">
+            Calculator
+        </div>
+
+        <div id="spendmoney">
+
+            <div id="cat">
+
+                <h2 id="cc">Choose Category</h2>
+                <div id="cat1">
+
+                    <div id="cat11">
+
+                        <h2 onclick="enter()" id="enter">🎯 Entertainment</h2>
+                        <h2 onclick="food()" id="food">🍜 Food</h2>
+
+
+                    </div>
+
+                </div>
+
+                <div id="cat2">
+
+
+
+                    <div id="cat21">
+
+
+                        <h2 onclick="shop()" id="shop">🛍️ Shopping</h2>
+
+                        <h2 onclick="health()" id="health">👨‍⚕️ Health</h2>
+                    </div>
+
+
+
+
+
+                </div>
+
+                <div id="cat3">
+
+
+                    <div id="cat31">
+
+
+                        <h2 onclick="study()" id="study">📚 Study</h2>
+
+
+                        <h2 onclick="others()" id="others">😎 Others</h2>
+
+
+
+
+                    </div>
+
+
+                </div>
+
+
+
+            </div>
+
+
+            <div id="inputspent">
+
+                <input placeholder="Where you Spent?" type="text"
+                    id="spentwhere">
+
+                <input placeholder="Amount Spent?" type="number"
+                    id="amountspent">
+
+                <button onclick="record()" id="submitamount">Submit</button>
+                <div id="i">
+                    <button onclick="emerrecord()" id="emersubmitamount">Emergency
+                        Submit</button>
+
+                    <img onclick="openemerpopup()" id="i1"
+                        src="information-button.png" alt="">
+
+                </div>
+            </div>
+
+
+
+        </div>
+
+        <div id="analytics">
+            <canvas id="myChart" height="290" style="width:100%;"></canvas>
+            <br>
+            <canvas height="300" id="myChart1"
+                style="width:100%;max-width:700px"></canvas>
+            <br>
+            <br>
+            <canvas width="90" height="90" id="myChart3"
+                style="width:100%;max-width:700px"></canvas>
+
+
+            <div id="flexx">
+                <input placeholder=" Enter Min" type="number" id="minpoint">
+                <input placeholder=" Enter Max" type="number" id="maxpoint1">
+            </div>
+
+            <button onclick="analytics()" id="done1">Submit</button>
+
+
+            <br>
+            <br>
+
+            <div>
+                <canvas height="250" id="myChart4"
+                    style="width:100%;max-width:600px"></canvas>
+
+            </div>
+
+            <div id="invis10">
+
+
+
+            </div>
+        </div>
+
+
+
+        <div id="wallet">
+
+            <div id="inswallet">
+
+
+                <div id="profilee">
+
+                    <img src="" alt="" id="profilee1">
+
+                    <h2 id="hellon"> </h2>
+
+
+                    <img onclick="openhis()" id="historyb" src="history.png" alt="">
+
+                </div>
+
+
+                <div id="balance">
+
+                    <h2 id="bal">Balance</h2>
+
+                    <h2 id="balance1"></h2>
+
+                    <h2 id="used1"></h2>
+
+                </div>
+
+            </div>
+
+            <h2 id="lt">Last Transactions</h2>
+
+            <div id="lastt">
+
+
+
+
+                <div class="trans10" id="trans1">
+
+                    <img class="category10" id="category1" src="" alt="">
+
+                    <h2 class="spent10" id="spentw1"></h2>
+
+                    <h2 class="rupees10" id="rs1"></h2>
+                </div>
+                <div class="trans10" id="trans2">
+
+                    <img src="" alt="" class="category10" id="category2">
+
+                    <h2 class="spent10" id="spentw2"></h2>
+
+                    <h2 class="rupees10" id="rs2"></h2>
+                </div>
+                <div class="trans10" id="trans3">
+
+                    <img src="" alt="" class="category10" id="category3">
+
+                    <h2 class="spent10" id="spentw3"></h2>
+
+                    <h2 class="rupees10" id="rs3"></h2>
+                </div>
+                <div class="trans10" id="trans4">
+
+                    <img src="" alt="" class="category10" id="category4">
+
+                    <h2 class="spent10" id="spentw4"></h2>
+
+                    <h2 class="rupees10" id="rs4"></h2>
+                </div>
+                <div class="trans10" id="trans5">
+
+                    <img src="" alt="" class="category10" id="category5">
+
+                    <h2 class="spent10" id="spentw5"></h2>
+
+                    <h2 class="rupees10" id="rs5"></h2>
+                </div>
+                <div class="trans10" id="trans6">
+
+                    <img src="" alt="" class="category10" id="category6">
+
+                    <h2 class="spent10" id="spentw6"></h2>
+
+                    <h2 class="rupees10" id="rs6"></h2>
+                </div>
+                <div class="trans10" id="trans7">
+
+
+                    <img src="" alt="" class="category10" id="category7">
+
+                    <h2 class="spent10" id="spentw7"></h2>
+
+                    <h2 class="rupees10" id="rs7"></h2>
+
+                </div>
+
+                <div class="trans10" id="trans8">
+                    <img src="" alt="" class="category10" id="category8">
+
+                    <h2 class="spent10" id="spentw8"></h2>
+
+                    <h2 class="rupees10" id="rs8"></h2>
+                </div>
+
+                <div class="trans10" id="trans9">
+
+
+                    <img src="" alt="" class="category10" id="category9">
+
+                    <h2 class="spent10" id="spentw9"></h2>
+
+                    <h2 class="rupees10" id="rs9"></h2>
+
+                </div>
+
+
+
+                <h2 onclick="openhis()" id="sm">See More...</h2>
+
+                <div id="divv">
+
+
+
+                </div>
+
+
+            </div>
+
+
+
+
+
+
+        </div>
+
+
+
+        <div id="settings">
+
+
+            <div id="settingtop">
+
+                <img onclick="nowayhome()" src="backb.png" alt="" id="backb">
+                <h2 id="settname">Setting</h2>
+
+            </div>
+
+
+            <div id="downtown">
+
+                <div class="updown" id="accedit">
+                    <div class="vis" id="vis1">
+
+                        <h2 class="nameco" id="nameacc">Account</h2>
+
+                        <img onclick="openacc()" class="openpn" src="open.png"
+                            alt="" id="openacc">
+
+                        <img onclick="closeacc()" class="closepn"
+                            src="closed.png" alt="" id="closeacc">
+
+                    </div>
+
+
+                    <div id="invis">
+
+                        <div id="cavatar">
+
+                            <div class="avachange" id="avatarchange">
+
+                                <img class="avaleft" onclick="left()"
+                                    src="left.png" alt=""
+                                    id="left">
+                                <img src="" alt="" id="avapic"
+                                    class="avatarpic">
+                                <img class="avaright" onclick="right()"
+                                    src="right.png" alt=""
+                                    id="right">
+
+
+
+
+
+                            </div>
+
 
                         </div>
 
-                        <div onclick="monthly()" id="monthly1">
-
-                            <h2>Monthly</h2>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-                <div id="setlim">
-
-
-                    <h2 id="setlim1">Set Limit</h2>
-
-                    <div id="setlim2">
-
-                        <img onclick="minus()" src="minus.png" alt="" id="minus">
-                        <h2 id="limit1"></h2>
-                        <img onclick="plus()" src="plus.png" alt="" id="plus">
-
-
-                    </div>
-
-
-
-
-
-                </div>
-
-                <button onclick="submit2()" id="submit2">Submit</button>
-            </div>
-
-            <div id="form3">
-
-                <div id="cavatar">
-                    <h2 id="chooseava">Choose Avatar</h2>
-                    <div id="avatarchange">
-
-                        <img onclick="left()" src="left.png" alt="" id="left">
-                        <img src="ava1.png" alt="" id="avatarpic">
-                        <img onclick="right()" src="right.png" alt="" id="right">
-
 
 
 
                     </div>
 
 
-                    <button onclick="submit3()" id="submit3">Submit</button>
+
                 </div>
 
 
+                <div class="updown" id="displayedit">
 
+                    <div class="vis" id="vis1">
+
+                        <h2 class="nameco" id="namedis">Display</h2>
+
+                        <img class="openpn" src="open.png" alt="" id="opendis">
+                        <img class="closepn" src="closed.png" alt=""
+                            id="closedis">
+
+                    </div>
+
+
+                </div>
+
+
+                <div class="updown" id="importantedit">
+
+                    <div class="vis" id="vis1">
+
+                        <h2 class="nameco" id="nameimp">Important</h2>
+
+                        <img class="openpn" src="open.png" alt="" id="openimp">
+                        <img class="closepn" src="closed.png" alt=""
+                            id="closeimp">
+
+                    </div>
+
+
+
+                </div>
+
+
+                <div class="updown" id="premiumedit">
+
+                    <div class="vis" id="vis1">
+
+                        <h2 class="nameco" id="namepre">Premium</h2>
+
+                        <img class="openpn" src="open.png" alt="" id="openpre">
+                        <img class="closepn" src="closed.png" alt=""
+                            id="closepre">
+
+                    </div>
+
+
+
+                </div>
+
+                <div class="updown" id="contactedit">
+
+                    <div class="vis" id="vis1">
+
+                        <h2 class="nameco" id="namecon">Contact </h2>
+
+                        <img class="openpn" src="open.png" alt="" id="opencon">
+                        <img class="closepn" src="closed.png" alt=""
+                            id="closecon">
+                    </div>
+
+
+
+                </div>
+
+                <div id="helpflex">
+
+                    <img onclick="helpplz()" src="question (1).png" alt=""
+                        id="helpplz1">
+
+
+                </div>
+
+
+                
             </div>
 
 
 
 
-            <div id="dot">
-
-                <div id="dot1"></div>
-                <div id="dot2"></div>
-                <div id="dot3"></div>
-
-            </div>
-        </div>
-    </div>
-
-    <div id="home">
-
-        <div id="sett">
-
-<img src="setting.png" alt="" id="setting">
-
-<img src="" alt="" id="account">
-
 
         </div>
 
 
-        <div id="quote">
+        <div id="popup2">
 
+            <img onclick="closepopup2()" src="close.png" alt="" id="close">
 
-<h2 id="quotetext">
+            <h2 id="title"></h2>
+            <h2 id="info1"></h2>
+            <h2 id="info2"></h2>
 
-
-    
-</h2>
-
-<h3 id="artist">
-
-
-
-</h3>
-
-
-        </div>
-
-        <div id="moneysl">
-
-
-
-            <div id="moneyspent">
-
-                <h2>Money Left</h2>
-<h2 id="mleft"> </h2>
-
-
-            </div>
-            <div id="moneylimit">
-                <h2 id="mlim1"> Limit</h2>
-<h2 id="mlim"></h2>
-
-            </div>
-
-
-
-
-
-        </div>
-
-        <div id="day">
-
-<h2 id="dayc"></h2>
 
         </div>
 
@@ -223,226 +671,66 @@
 
 
 
-    </div>
+        <div id="help">
 
-<div id="calculator">
-Calculator
+
+            <h2 id="helpheading">
+
+
+
+            </h2>
+
+            <br>
+
+            <h2 id="helpheading1">This is Sumeet Gupta</h2>
+            <h2 id="helpheading2">Developer of Account Manager...</h2>
+
+            <h2 id="helpp2">
+
+                In this app you can Manage your Expenses and can set your
+                monthly or weekly limit
+
+            </h2>
+
+            <h2 id="helpp3">
+
+                If any Bug would found in this app then Please Contact :
+
+            </h2>
+
+
+            <h2 id="helpp4">
+                ✉️ sumeetgupta3690@gmail.com
+                <br>
+                📞(Whatsapp) : 9029638307
+
+
+
+            </h2>
+
+            <button id="closehelp" onclick="closehelp()">Ok</button>
+        </div>
+
+<div id="historyy">
+
+<div id="historytop">
+
+<img  onclick="closehis()" src="backb.png" alt="" id="closehis">
+
+<h2 id="histit">History</h2>
 </div>
 
-<div id="spendmoney">
+<div id="divww">
+<div id="historyform">
 
-<div id="cat">
 
-    <h2 id="cc">Choose Category</h2>
-<div id="cat1">
 
-<div id="cat11">
 
-<h2 onclick="enter()" id="enter">🎯 Entertainment</h2>
-
-<h2 onclick="food()" id="food">🍜 Food</h2>
     
 
 </div>
 
-</div>
 
-<div id="cat2">
-
-  
-
-    <div id="cat21">
-
-
-        <h2 onclick="shop()" id="shop">🛍️ Shopping</h2>
-
-        <h2 onclick="health()" id="health">👨‍⚕️ Health</h2>
-
-         
-        
-        
-            
-        </div>
-
-    
-
-
-
-</div>
-
-<div id="cat3">
-
-
-    <div id="cat31">
-
-
-        <h2 onclick="study()"  id="study">📚 Study</h2>
-
-
-        <h2 onclick="others()" id="others">😎 Others</h2>
-
-         
-
-
-    </div>
-    
-    
-</div>
-
-
-
-</div>
-
-
-<div id="inputspent">
-
-<input placeholder="Where you Spent?" type="text" id="spentwhere">
-
-<input  placeholder="Amount Spent?" type="number" id="amountspent">
-
-<button onclick="record()" id="submitamount">Submit</button>
-
-<div id="i">
-<button onclick="emerrecord()"  id="emersubmitamount">Emergency Submit</button>
-
-<img onclick="openemerpopup()" id="i1" src="information-button.png" alt="">
-
-</div>
-</div>
-
-
-
-</div>
-
-<div id="analytics">
-    <canvas id="myChart" style="width:100%;"></canvas>
-
-    <canvas id="myChart1" style="width:100%;max-width:700px"></canvas>
-</div>
-
-<div id="wallet">
-
-<div id="inswallet">
-
-
-    <div id="profilee">
-
-<img src="" alt="" id="profilee1">
-
-<h2 id="hellon"> </h2>
-
-
-<img id="historyb" src="history.png" alt="">
-
-    </div>
-
-
-    <div id="balance">
-
-<h2 id="bal">Balance</h2>
-
-<h2 id="balance1"></h2>
-
-<h2 id="used1"></h2>
-
-</div>
-
-</div>
-
-<h2 id="lt">Last Transactions</h2>
-
-<div id="lastt">
-
-
-
-
-<div class="trans10" id="trans1">
-
-    <img class="category10" id="category1" src="" alt="" >
-
-    <h2 class="spent10" id="spentw1"></h2>
-
-    <h2 class="rupees10" id="rs1"></h2>
-</div>
-<div class="trans10" id="trans2">
-
-    <img src="" alt="" class="category10" id="category2">
-
-    <h2 class="spent10" id="spentw2"></h2>
-
-    <h2 class="rupees10" id="rs2"></h2>
-</div>
-<div class="trans10" id="trans3">
-
-    <img src="" alt="" class="category10" id="category3">
-
-    <h2 class="spent10" id="spentw3"></h2>
-
-    <h2 class="rupees10" id="rs3"></h2>
-</div>
-<div class="trans10" id="trans4">
-
-    <img src="" alt="" class="category10" id="category4">
-
-    <h2 class="spent10" id="spentw4"></h2>
-
-    <h2 class="rupees10" id="rs4"></h2>
-</div>
-<div class="trans10" id="trans5">
-
-    <img src="" alt="" class="category10" id="category5">
-
-    <h2 class="spent10" id="spentw5"></h2>
-
-    <h2 class="rupees10" id="rs5"></h2>
-</div>
-<div class="trans10" id="trans6">
-
-    <img src="" alt="" class="category10" id="category6">
-
-    <h2 class="spent10" id="spentw6"></h2>
-
-    <h2 class="rupees10" id="rs6"></h2>
-</div>
-<div class="trans10"  id="trans7">
-
-
-    <img src="" alt="" class="category10" id="category7">
-
-    <h2 class="spent10" id="spentw7"></h2>
-
-    <h2 class="rupees10" id="rs7"></h2>
-
-</div>
-
-<div class="trans10" id="trans8">
-    <img src="" alt="" class="category10" id="category8">
-
-    <h2 class="spent10" id="spentw8"></h2>
-
-    <h2 class="rupees10" id="rs8"></h2>
-</div>
-
-<div class="trans10"  id="trans9">
-
-
-    <img src="" alt="" class="category10" id="category9">
-
-    <h2 class="spent10" id="spentw9"></h2>
-
-    <h2 class="rupees10" id="rs9"></h2>
-
-</div>
-
-
-
-<h2 id="sm">See More...</h2>
-
-<div id="divv">
-
-
-
-</div>
 
 
 </div>
@@ -455,41 +743,25 @@ Calculator
 </div>
 
 
-<div id="popup2">
 
-    <img onclick="closepopup2()" src="close.png" alt="" id="close">
+        <footer id="navbar">
 
-<h2 id="title"></h2>
-<h2 id="info1"></h2>
-<h2 id="info2"></h2>
+            <img onclick="house()" src="house1.png" alt="" id="home1">
 
+            <img onclick="cal()" src="cal2.png" alt="" id="cal1">
 
-</div>
+            <img onclick="addd()" src="plus2.png" alt="" id="add1">
 
+            <img onclick="anal()" src="ana2.png" alt="" id="analytics1">
 
+            <img onclick="wall()" src="wallet2.png" alt="" id="wallet1">
+        </footer>
 
+        <script src="index.js" ></script>
 
-
-    <footer id="navbar">
-
-        <img onclick="house()" src="house1.png" alt="" id="home1">
-        
-        <img onclick="cal()" src="cal2.png" alt="" id="cal1">
-        
-        <img onclick="addd()" src="plus2.png" alt="" id="add1">
-        
-        <img onclick="anal()" src="ana2.png" alt="" id="analytics1">
-        
-        <img onclick="wall()" src="wallet2.png" alt="" id="wallet1">
-            
-    </footer>
-
-    <script src="index.js"></script>
-
-    <script
-src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
 </script>
-
-</body>
+    </body>
 
 </html>

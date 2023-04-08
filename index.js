@@ -1,17 +1,37 @@
+
+
+// var message = "function disabled";
+
+// function rtclickcheck(keyp){ if (navigator.appName == "Netscape" && keyp.which == 3){ alert(message); return false; }
+
+// if (navigator.appVersion.indexOf("MSIE") != -1 && event.button == 2) { alert(message); return false; } }
+
+// document.onmousedown = rtclickcheck;
+
+//Disable right click
+
+
 function start() {
 
 
 
   if (localStorage.getItem("Login") == "true") {
     home();
+
+
+ document.getElementById("minpoint").value = 5;
+document.getElementById("maxpoint1").value = 100;
+
+
     house();
     document.getElementById("home").style.display = "block";
     document.getElementById("navbar").style.display = "flex";
     document.getElementById("login").style.display = "none";
   }
   else {
-
-
+localStorage.setItem("Historycount", -1);
+    localStorage.setItem("minimum",5);
+    localStorage.setItem("maximum",150);
     localStorage.setItem("Entertainmentspent", 0);
     localStorage.setItem("Foodspent", 0);
     localStorage.setItem("Shoppingspent", 0);
@@ -116,11 +136,11 @@ function closepopup() {
   document.getElementById("popup").style.display = "none";
   navigator.vibrate(50);
 
+helpplz()
 
+  // document.getElementById("navbar").style.display = "flex"
 
-  document.getElementById("navbar").style.display = "flex"
-
-  location.reload();
+  // location.reload();
 }
 
 function weekly() {
@@ -247,6 +267,8 @@ var ava = [
 ];
 
 function left() {
+
+  document.getElementById("avapic").src = ava[localStorage.getItem("Avatarcount")];
   navigator.vibrate(50);
 
   if (Number(localStorage.getItem("Avatarcount")) <= 0) {
@@ -266,6 +288,8 @@ function left() {
 }
 
 function right() {
+
+  document.getElementById("avapic").src = ava[localStorage.getItem("Avatarcount")];
   navigator.vibrate(50);
 
   if (Number(localStorage.getItem("Avatarcount")) >= 29) {
@@ -436,6 +460,40 @@ function wall() {
 function home() {
 
 
+
+  var xValues = ["Entertainment", "Food", "Shopping", "Health", "Study", "Others"];
+  var yValues = [localStorage.getItem("Entertainmentspent"), localStorage.getItem("Foodspent"), localStorage.getItem("Shoppingspent"), localStorage.getItem("Healthspent"), localStorage.getItem("Studyspent"), localStorage.getItem("Othersspent"), ];
+  var barColors = [
+    "#cf1f2b",
+    "#d9b32b",
+    "#248eb5",
+    "#3ebf2a",
+    "#2a6bbf",
+    "#a616a3"
+   
+  ];
+  
+  new Chart("myChart2", {
+    type: "pie",
+    data: {
+      labels: xValues,
+      datasets: [{
+        backgroundColor: barColors,
+        data: yValues
+      }]
+    },
+    options: {
+      title: {
+        display: true,
+        responsive: true,
+        maintainAspectRatio: false,
+        text: "Spent By Categories"
+      }
+    }
+  });
+
+
+
   navigator.vibrate(50)
 
   document.getElementById("home").style.display = "block";
@@ -524,7 +582,7 @@ function home() {
 
       localStorage.setItem("Day", Number(1));
 
-localStorage.setItem("Balance", localStorage.getItem("Limit"));
+localStorage.setItem("Balance", Number(localStorage.getItem("Balance")) +  Number(localStorage.getItem("Limit")));
 
 localStorage.setItem("Spent", 0);
 
@@ -550,7 +608,8 @@ localStorage.setItem("Othersspent", 0);
 
       localStorage.setItem("Day", Number(1));
 
-      localStorage.setItem("Balance", localStorage.getItem("Limit"));
+      localStorage.setItem("Balance", Number(localStorage.getItem("Balance")) +  Number(localStorage.getItem("Limit")));
+
 
 localStorage.setItem("Spent", 0);
 
@@ -620,17 +679,17 @@ function analytics() {
   var xValues = ["Entertainment", "Food", "Shopping", "Health", "Study", "Others"];
   var yValues = [localStorage.getItem("Entertainmentspent"), localStorage.getItem("Foodspent"), localStorage.getItem("Shoppingspent"), localStorage.getItem("Healthspent"), localStorage.getItem("Studyspent"), localStorage.getItem("Othersspent"), ];
   var barColors = [
-    "violet",
-    "yellow",
-    "orange",
-    "purple",
-    "pink",
-    "blue"
+    "#cf1f2b",
+    "#d9b32b",
+    "#248eb5",
+    "#3ebf2a",
+    "#2a6bbf",
+    "#a616a3"
    
   ];
   
   new Chart("myChart1", {
-    type: "pie",
+    type: "doughnut",
     data: {
       labels: xValues,
       datasets: [{
@@ -649,6 +708,136 @@ function analytics() {
 
 
 
+ var data10 = localStorage.getItem("spent" + localStorage.getItem("Transactioncount"));
+
+  var  data9 = localStorage.getItem("spent" + (Number(localStorage.getItem("Transactioncount"))-1));
+
+  var  data8 = localStorage.getItem("spent" + (Number(localStorage.getItem("Transactioncount"))-2));
+
+  var  data7 = localStorage.getItem("spent" + (Number(localStorage.getItem("Transactioncount"))-3));
+
+  var  data6 = localStorage.getItem("spent" + (Number(localStorage.getItem("Transactioncount"))-4));
+
+  var  data5 = localStorage.getItem("spent" + (Number(localStorage.getItem("Transactioncount"))-5));
+
+  var  data4 = localStorage.getItem("spent" + (Number(localStorage.getItem("Transactioncount"))-6));
+
+  var  data3 = localStorage.getItem("spent" + (Number(localStorage.getItem("Transactioncount"))-7));
+
+  var  data2 = localStorage.getItem("spent" + (Number(localStorage.getItem("Transactioncount"))-8));
+
+  var  data01 = localStorage.getItem("spent" + (Number(localStorage.getItem("Transactioncount"))-9));
+
+
+
+  const x1Values = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+const y1Values = [data01, data2, data3, data4, data5, data6, data7, data8, data9, data10];
+
+var minimum  , maximum ;
+
+
+
+
+  minimum = document.getElementById("minpoint").value;
+  localStorage.setItem("minimum", minimum);
+
+
+  maximum = document.getElementById("maxpoint1").value;
+  localStorage.setItem("maximum", maximum);
+
+
+
+
+
+
+new Chart("myChart3", {
+  type: "line",
+  data: {
+
+    
+    labels: x1Values,
+    datasets: [{
+      fill: false,
+      lineTension: 0,
+      backgroundColor: "red",
+      borderColor: "blue",
+      data: y1Values
+    }]
+  },
+  options: {
+
+
+
+    legend: {display: false},
+    scales: {
+      yAxes: [{ticks: {min: Number(localStorage.getItem("minimum")), max: Number(localStorage.getItem("maximum"))}}],
+      text: "Recent 10 Transactions"
+    }
+  }
+});
+
+
+
+var xValues = [
+
+  localStorage.getItem("where" + ((localStorage.getItem("Transactioncount"))-4)),
+
+  localStorage.getItem("where" + ((localStorage.getItem("Transactioncount"))-3)),
+
+  localStorage.getItem("where" + ((localStorage.getItem("Transactioncount"))-2)),
+  
+  localStorage.getItem("where" + ((localStorage.getItem("Transactioncount"))-1)),
+
+  localStorage.getItem("where" + localStorage.getItem("Transactioncount")),
+
+
+
+
+
+];
+var yValues = [
+
+  localStorage.getItem("spent" + ((localStorage.getItem("Transactioncount"))-4)),
+
+  localStorage.getItem("spent" + ((localStorage.getItem("Transactioncount"))-3)),
+  localStorage.getItem("spent" + ((localStorage.getItem("Transactioncount"))-2)),
+
+  localStorage.getItem("spent" + ((localStorage.getItem("Transactioncount"))-1)),
+  
+  localStorage.getItem("spent" + localStorage.getItem("Transactioncount")),
+
+
+  0
+
+
+
+
+
+];
+var barColors = ["red", "green","blue","orange","brown"];
+
+new Chart("myChart4", {
+  type: "bar",
+  data: {
+    labels: xValues,
+    datasets: [{
+      backgroundColor: barColors,
+      data: yValues
+    }]
+  },
+  options: {
+    legend: {display: false},
+    title: {
+      display: true,
+      text: "Recent Transactions"
+    
+    }
+  }
+});
+
+
+
+
   navigator.vibrate(50)
 
   document.getElementById("home").style.display = "none";
@@ -663,6 +852,10 @@ function analytics() {
   document.getElementById("wallet").style.display = "none";
 
 }
+
+
+
+
 
 function wallet() {
 
@@ -735,7 +928,7 @@ percent = Math.ceil(percent);
 
   }
 
-  else if (percent > 75) {
+  else if (percent > 75 && percent<=100) {
 
 
     document.getElementById("used1").innerHTML = "Used " + percent + "% of " + aaa + " Limit";
@@ -747,6 +940,16 @@ percent = Math.ceil(percent);
     document.getElementById("used1").style.color = "red";
 
 
+  }
+
+  else{
+
+    document.getElementById("used1").innerHTML = "Limit Exceeded : It will deduct from your next " + aaa + " Balance";
+    document.getElementById("balance1").style.backgroundColor =
+      "red";
+
+      document.getElementById("used1").style.fontSize ="15px"
+  document.getElementById("used1").style.color = "red";
   }
 
 
@@ -918,6 +1121,83 @@ localStorage.setItem("Livedate", livedate)  ;
 function record(){
 
 
+
+
+if(document.getElementById("spentwhere").value == "" || document.getElementById("amountspent").value == ""     ){
+
+
+alert("⚠️ Kindly Enter Amount and Where your spent...")
+
+}
+
+
+else  {
+
+    
+localStorage.setItem("Historycount", Number(localStorage.getItem("Historycount"))+1);
+setTimeout(() => {
+  location.reload()
+}, 1500);
+
+
+setTimeout(() => {
+  var i = localStorage.getItem("Historycount");
+
+
+var element = document.createElement("div");//Box
+var element2 = document.createElement("img");//Logo
+var element3 = document.createElement("h2");//wherespent
+var element4 = document.createElement("h3");//time
+var element5 = document.createElement("h2");//moneyspent
+var element6 = document.createElement("div"); //wherespent+time
+  
+element.setAttribute("id", "historycount" + i );
+element2.setAttribute("id", "historyimg" + i );
+element3.setAttribute("id", "historywhere" + i );
+element4.setAttribute("id", "historytime" + i );
+element5.setAttribute("id", "historyspent" + i );
+element6.setAttribute("id", "historywt" + i );
+
+
+element.setAttribute("class", "historycount"  );
+element2.setAttribute("class", "historyimg"  );
+element3.setAttribute("class", "historywhere"  );
+element4.setAttribute("class", "historytime"  );
+element5.setAttribute("class", "historyspent"  );
+element6.setAttribute("class", "historywt"  );
+
+
+
+element6.appendChild(element3);
+element6.appendChild(element4);
+
+element.appendChild(element2)
+element.appendChild(element6)
+element.appendChild(element5)
+
+
+
+
+document.getElementById('historyform').appendChild(element);
+
+var temp = localStorage.getItem("cat" + i);
+temp = temp.toLowerCase() 
+
+
+element2.src = temp +".png";
+element3.innerHTML = localStorage.getItem("where" + i);
+
+var tempstr = localStorage.getItem("date" + i);
+tempstr = tempstr.substr(4,17);
+
+element4.innerHTML = tempstr
+element5.innerHTML = "-₹" + localStorage.getItem("spent" + i);
+
+}, 100);
+
+
+
+
   var livedate = new Date();
   localStorage.setItem("Livedate", livedate)  ;
 
@@ -996,14 +1276,92 @@ setTimeout(() => {
   localStorage.setItem("date" + localStorage.getItem("Transactioncount"), date[localStorage.getItem("Transactioncount")])
 
 
-  
+  }
 }
 
 function emerrecord(){
+  
+
+
+  
+
+
+  if(document.getElementById("spentwhere").value == "" || document.getElementById("amountspent").value == ""     ){
+  
+  
+  alert("⚠️ Kindly Enter Amount and Where your spent...")
+  
+  }
+  
+  
+  else  {
   var livedate = new Date();
   localStorage.setItem("Livedate", livedate)  ;
 
+  localStorage.setItem("Historycount", Number(localStorage.getItem("Historycount"))+1);
+
+
+
+
+
+setTimeout(() => {
+  var i = localStorage.getItem("Historycount");
+
+
+var element = document.createElement("div");//Box
+var element2 = document.createElement("img");//Logo
+var element3 = document.createElement("h2");//wherespent
+var element4 = document.createElement("h3");//time
+var element5 = document.createElement("h2");//moneyspent
+var element6 = document.createElement("div"); //wherespent+time
   
+element.setAttribute("id", "historycount" + i );
+element2.setAttribute("id", "historyimg" + i );
+element3.setAttribute("id", "historywhere" + i );
+element4.setAttribute("id", "historytime" + i );
+element5.setAttribute("id", "historyspent" + i );
+element6.setAttribute("id", "historywt" + i );
+
+
+element.setAttribute("class", "historycount"  );
+element2.setAttribute("class", "historyimg"  );
+element3.setAttribute("class", "historywhere"  );
+element4.setAttribute("class", "historytime"  );
+element5.setAttribute("class", "historyspent"  );
+element6.setAttribute("class", "historywt"  );
+
+
+
+element6.appendChild(element3);
+element6.appendChild(element4);
+
+element.appendChild(element2)
+element.appendChild(element6)
+element.appendChild(element5)
+
+
+
+
+document.getElementById('historyform').appendChild(element);
+
+var temp = localStorage.getItem("cat" + i);
+temp = temp.toLowerCase() 
+
+
+element2.src = temp +".png";
+element3.innerHTML = localStorage.getItem("where" + i);
+
+var tempstr = localStorage.getItem("date" + i);
+tempstr = tempstr.substr(4,17);
+
+element4.innerHTML = tempstr
+element5.innerHTML = "-₹" + localStorage.getItem("spent" + i);
+
+}, 100);
+
+setTimeout(() => {
+  location.reload()
+}, 1500);
 
 if(localStorage.getItem("Category") == "Entertainment" ){
 
@@ -1078,6 +1436,210 @@ else if(localStorage.getItem("Category") == "Others" ){
 
 
 }
+
+}
+
+
+function opensett(){
+
+document.getElementById("home").style.display = "none";
+
+document.getElementById("settings").style.display = "block";
+
+document.getElementById("navbar").style.display = "none";
+
+
+navigator.vibrate(50)
+
+
+
+}
+
+function nowayhome(){
+
+navigator.vibrate(50);
+document.getElementById("home").style.display = "block";
+
+document.getElementById("settings").style.display = "none";
+
+document.getElementById("navbar").style.display = "flex";
+
+
+
+
+
+}
+
+function openacc(){
+
+  document.getElementById("openacc").style.display = "none"
+
+  document.getElementById("closeacc").style.display = "block"
+
+  document.getElementById("accedit").style.height = "60vh"
+
+  
+  document.getElementById("invis").style.display = "block"
+
+
+}
+
+
+function closeacc(){
+
+ 
+
+  document.getElementById("openacc").style.display = "block"
+
+  document.getElementById("closeacc").style.display = "none"
+
+  document.getElementById("accedit").style.height = "9vh"
+
+  document.getElementById("invis").style.display = "none"
+
+}
+
+function helpplz(){
+
+  navigator.vibrate(50)
+
+ setTimeout(() => {
+  
+ }, 7000);
+
+document.getElementById("home").style.display = "none"
+document.getElementById("navbar").style.display = "none"
+document.getElementById("help").style.display = "block"
+document.getElementById("settings").style.display = "none"
+
+
+
+document.getElementById("helpheading").innerHTML = "Welcome, " + localStorage.getItem("Name");
+
+
+setTimeout(() => {
+  document.getElementById("helpheading1").style.display = "block"
+}, 1700);
+
+setTimeout(() => {
+  document.getElementById("helpheading2").style.display = "block"
+}, 3300);
+
+setTimeout(() => {
+  document.getElementById("helpp2").style.display = "block"
+  document.getElementById("helpp3").style.display = "block"
+  document.getElementById("helpp4").style.display = "block"
+  document.getElementById("closehelp").style.display = "block"
+}, 5000);
+}
+
+
+
+function closehelp(){
+
+  navigator.vibrate(50)
+
+  location.reload();
+
+  // document.getElementById("home").style.display = "block"
+  document.getElementById("navbar").style.display = "flex"
+  document.getElementById("help").style.display = "none"
+  document.getElementById("settings").style.display = "none"
+}
+
+
+function openhis(){
+
+ 
+
+
+  document.getElementById("wallet").style.display = "none"
+
+  document.getElementById("historyy").style.display = "block"
+
+
+  document.getElementById("navbar").style.display = "none"
+
+  //History Data Shown
+document.getElementById("historyform").style.display = "block";
+}
+
+function closehis(){
+
+  navigator.vibrate(50);
+  
+  document.getElementById("wallet").style.display = "block"
+
+  document.getElementById("historyy").style.display = "none"
+
+
+  document.getElementById("navbar").style.display = "flex"
+
+
+
+
+}
+
+for(var i = localStorage.getItem("Historycount"); i>=0; i--){
+
+
+
+var element = document.createElement("div");//Box
+var element2 = document.createElement("img");//Logo
+var element3 = document.createElement("h2");//wherespent
+var element4 = document.createElement("h3");//time
+var element5 = document.createElement("h2");//moneyspent
+var element6 = document.createElement("div"); //wherespent+time
+  
+element.setAttribute("id", "historycount" + i );
+element2.setAttribute("id", "historyimg" + i );
+element3.setAttribute("id", "historywhere" + i );
+element4.setAttribute("id", "historytime" + i );
+element5.setAttribute("id", "historyspent" + i );
+element6.setAttribute("id", "historywt" + i );
+
+
+element.setAttribute("class", "historycount"  );
+element2.setAttribute("class", "historyimg"  );
+element3.setAttribute("class", "historywhere"  );
+element4.setAttribute("class", "historytime"  );
+element5.setAttribute("class", "historyspent"  );
+element6.setAttribute("class", "historywt"  );
+
+
+
+element6.appendChild(element3);
+element6.appendChild(element4);
+
+element.appendChild(element2)
+element.appendChild(element6)
+element.appendChild(element5)
+
+
+
+
+document.getElementById('historyform').appendChild(element);
+
+var temp = localStorage.getItem("cat" + i);
+temp = temp.toLowerCase() 
+
+
+element2.src = temp +".png";
+element3.innerHTML = localStorage.getItem("where" + i);
+
+var tempstr = localStorage.getItem("date" + i);
+tempstr = tempstr.substr(4,17);
+
+element4.innerHTML = tempstr
+element5.innerHTML = "-₹" + localStorage.getItem("spent" + i);
+
+}
+
+
+
+
+
+
 
 
 
