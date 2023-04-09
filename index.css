@@ -157,6 +157,25 @@ input,
     border-color: #aa25fda8;
 }
 
+
+
+#changef {
+
+    background-color: #aa25fda8;
+    width: 50%;
+    height: 6vh;
+    border-radius: 15px;
+    font-size: 22px;
+    color: #ffffff;
+    margin-top: 7%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    border-color: #aa25fda8;
+}
 #closehelp {
 
     background-color: #aa25fda8;
@@ -674,7 +693,7 @@ footer{
     color: white;
     text-align: center;
     font-size: 27px;
-    background-color: #575d6955;
+    background-color: #aa25fda8;
     width: 30%;
     padding: 2% 4%;
     border-radius: 14px;
@@ -841,6 +860,8 @@ color: cyan;
     background-color: #575d6955;
     padding: 3% 4%;
     border-radius: 13px;
+    white-space: nowrap;
+    font-size: 22px;
 }
 
 #enter{
@@ -850,6 +871,8 @@ color: cyan;
     background-color: #575d6955;
     padding: 3% 4%;
     border-radius: 13px;
+    font-size: 20px;
+    white-space: nowrap;
 
 }
 #cat{
@@ -1088,12 +1111,14 @@ align-items: center;
     color: red;
     margin-left: auto;
     margin-right: 7%;
+    white-space: nowrap;
     
 }
 
 .spent10{
-
+font-size: 20px;
     margin-right:16%;
+    white-space: nowrap;
 }
 
 
@@ -1135,10 +1160,43 @@ align-items: center;
 #invisible{
 
     width: 100%;
-    height: 20vh;
+    height: 25vh;
     
 }
 
+
+#credits{
+
+ color: white;
+ text-align: center;
+ margin-top: 30%;
+
+}
+
+
+#tasklist{
+
+width: 92%;
+height: 50vh;
+background-color: #282a2b;
+
+margin-left: auto;
+margin-right: auto;
+border-radius: 13px;
+margin-top: 8%;
+}
+
+
+#ptt{
+
+    color: white;
+    text-align: center;
+    padding-top: 5%;
+    padding-bottom: 5%;
+
+    border-radius: 13px 13px 0px 0px;
+    background-color: #2568fd;
+}
 
 
 
@@ -1157,6 +1215,7 @@ align-items: center;
     align-items: center;
     text-align: center; 
     border-radius: 13px;
+    margin-top: 13%;
 
 }
 
@@ -1642,13 +1701,14 @@ border-radius: 13px;
 
     font-size: 20px;
     margin-right: 20%;
-   
+   white-space: nowrap;
 }
 
 .historyspent{
 
 color: red;
 margin-right: 5%;
+white-space: nowrap;
 
 }
 .historytime{
@@ -1918,7 +1978,7 @@ margin-top: -2%;
 
 #transdone{
 
-    font-size: 21px;
+    font-size: 18px;
     text-align: center;
     color: #f7d681;
 }
@@ -1977,7 +2037,8 @@ right: 5%;
 #resetb {
 
     background-color: #2557fda8;
-    width: 50%;
+    width: 70%;
+    white-space: nowrap;
     height: 6vh;
     border-radius: 15px;
     font-size: 22px;
@@ -2030,3 +2091,150 @@ right: 5%;
     margin-right: auto;
     border-color: #aa25fda8;
 }
+
+#submittask {
+
+    background-color: #aa25fda8;
+    width: 50%;
+    height: 6vh;
+    border-radius: 15px;
+    font-size: 22px;
+    color: #ffffff;
+    margin-top: 7%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    border-color: #aa25fda8;
+}
+
+
+
+#todo1{
+
+    color: white;
+    white-space: nowrap;
+    text-align: center;
+    background-color: #aa25fda8;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 2% 5%;
+    border-radius: 10px;
+    margin-top: 15%;
+}
+
+#todo{
+
+    margin-top: 0%;
+}
+
+
+#taskli{
+
+   overflow-y: scroll;
+    width: 100%;
+    height: 37vh;
+}
+
+.taskcount{
+
+text-align: center;
+word-break: break-all;
+color: white;
+font-size: 25px;
+background-color: #2196F3;
+width: 90%;
+margin-left: auto;
+margin-right: auto;
+padding: 2% 0%;
+color: rgb(255, 255, 255);
+margin-top: 0%;
+border-radius: 10px;
+}
+
+
+
+
+
+
+#taskcount0{
+
+margin-top: 0%;
+
+
+}
+
+#todoinfo{
+
+    width: 7%;
+    opacity: 0.6;
+    margin-left: auto;
+    margin-right: 21%;
+    margin-top: 9%;
+
+}
+
+#todo1{
+
+    margin-right: auto;
+    margin-left: 30%;
+}
+
+#todoflex{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+#todo2{
+
+    margin-top: 3%;
+}
+
+#tasklist{
+
+    margin-top: 13%;
+}
+
+
+#factarea{
+
+    width: 90%;
+    height: fit-content;
+    background-color: #282a2b;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 13px;
+
+    color: white;
+
+    margin-top: 13%;
+}
+
+#factarea1{
+
+    text-align: center;
+    background-color: #2568fd;
+    border-radius: 13px 13px 0px 0px;
+    font-size: 25px;
+    padding: 4%;
+
+}
+
+#fact{
+
+    text-align: center;
+    font-size: 22px;
+
+  padding-bottom: 8%;
+  padding-left:  3%;
+  padding-right: 3%;
+
+    margin-top: 0%;
+}
+

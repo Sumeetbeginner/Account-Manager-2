@@ -1,14 +1,14 @@
 
 
-// var message = "function disabled";
+var message = "function disabled";
 
-// function rtclickcheck(keyp){ if (navigator.appName == "Netscape" && keyp.which == 3){ alert(message); return false; }
+function rtclickcheck(keyp){ if (navigator.appName == "Netscape" && keyp.which == 3){ alert(message); return false; }
 
-// if (navigator.appVersion.indexOf("MSIE") != -1 && event.button == 2) { alert(message); return false; } }
+if (navigator.appVersion.indexOf("MSIE") != -1 && event.button == 2) { alert(message); return false; } }
 
-// document.onmousedown = rtclickcheck;
+document.onmousedown = rtclickcheck;
 
-//Disable right click
+// Disable right click
 
 
 function start() {
@@ -24,11 +24,14 @@ document.getElementById("maxpoint1").value = 100;
 
 
     house();
-    document.getElementById("home").style.display = "block";
-    document.getElementById("navbar").style.display = "flex";
+    // document.getElementById("home").style.display = "block";
+    // document.getElementById("navbar").style.display = "flex";
     document.getElementById("login").style.display = "none";
   }
   else {
+
+
+    localStorage.setItem("Taskcount", -1);
 localStorage.setItem("Historycount", -1);
     localStorage.setItem("minimum",5);
     localStorage.setItem("maximum",150);
@@ -277,7 +280,7 @@ var ava = [
 
 function left() {
 
-  document.getElementById("avapic").src = ava[localStorage.getItem("Avatarcount")];
+  // document.getElementById("avapic").src = ava[localStorage.getItem("Avatarcount")];
   navigator.vibrate(50);
 
   if (Number(localStorage.getItem("Avatarcount")) <= 0) {
@@ -298,7 +301,7 @@ function left() {
 
 function right() {
 
-  document.getElementById("avapic").src = ava[localStorage.getItem("Avatarcount")];
+  // document.getElementById("avapic").src = ava[localStorage.getItem("Avatarcount")];
 
 
   navigator.vibrate(50);
@@ -526,6 +529,36 @@ function wall() {
 
 function home() {
 
+  navigator.vibrate(50);
+
+
+
+  const options = {
+    method: 'GET',
+    headers: {
+      'X-RapidAPI-Key': 'b04f1742e2mshce28e4820e3b28dp1f4a4cjsneac373220d42',
+      'X-RapidAPI-Host': 'facts-by-api-ninjas.p.rapidapi.com'
+    }
+  };
+  
+  fetch('https://facts-by-api-ninjas.p.rapidapi.com/v1/facts', options)
+    .then(response => response.json())
+    .then((response) => {
+      
+      
+     document.getElementById("fact").innerHTML = response[0].fact;
+      
+      console.log(response)
+      
+      
+    })
+    .catch((err) =>{
+  
+  document.getElementById("fact").innerHTML = "Please Check your Internet Connection ⚠️"
+  
+    console.error(err)
+    });
+  
 
 
   var xValues = ["Entertainment", "Food", "Shopping", "Health", "Study", "Others"];
@@ -561,7 +594,7 @@ function home() {
 
 
 
-  navigator.vibrate(50)
+
 
   document.getElementById("home").style.display = "block";
 
@@ -606,7 +639,13 @@ function home() {
 
 
     })
-    .catch(err => console.error(err));
+    .catch((err )=> {
+      
+      document.getElementById("quotetext").innerHTML = "Kindly Check your Internet Connection for Quotes ⚠️";
+
+      
+      
+      console.error(err)});
 
 
 
@@ -2085,6 +2124,217 @@ window.location = "mailto:sumeetgupta3690@gmail.com"
 
 
 }
+
+
+
+let task = [];
+
+function submittask(){
+
+
+
+if(document.getElementById("todo2").value == ""){
+alert("Please Enter Task ⚠️")
+
+
+}
+else{
+
+
+
+
+  alert("Task Added to the List ⚠️");
+
+localStorage.setItem("Taskcount", Number(localStorage.getItem("Taskcount")) + Number(1));
+
+  setTimeout(() => {
+
+    var taskelement = document.createElement("h4");
+
+    taskelement.setAttribute("id", "taskcount" + localStorage.getItem("Taskcount") );
+
+    taskelement.setAttribute("class", "taskcount"  );
+
+    document.getElementById("taskli").appendChild(taskelement)
+
+  var temp = localStorage.getItem("Taskcount")
+
+
+
+setTimeout(() => {
+  taskelement.innerHTML = localStorage.getItem("task" + temp);
+}, 150);
+
+   
+
+
+    localStorage.setItem("task" + localStorage.getItem("Taskcount"), document.getElementById("todo2").value );
+  }, 100);
+
+setTimeout(() => {
+  document.getElementById("todo2").value = "";
+}, 200);
+
+
+
+
+}
+
+}
+
+  
+
+
+for(var aa = 0; aa<=localStorage.getItem("Taskcount"); aa++ ){
+
+  if(localStorage.getItem("task" + aa) == null){
+
+
+
+  }
+
+  else{
+  var taskelement = document.createElement("h4");
+
+  taskelement.setAttribute("id", "taskcount" + aa);
+
+  taskelement.setAttribute("class", "taskcount"  );
+
+  document.getElementById("taskli").appendChild(taskelement)
+
+var temp = localStorage.getItem("Taskcount")
+
+  taskelement.innerHTML = localStorage.getItem("task" + aa);
+
+
+  }
+
+
+}
+
+
+setInterval(() => {
+  
+const buttons = document.getElementsByTagName("h4");
+
+const buttonPressed = e => {
+
+    // Get ID of Clicked Element
+
+    localStorage.setItem("ID", e.target.id);
+
+    document.getElementById(localStorage.getItem("ID")).style.textDecoration = "line-through"
+
+    document.getElementById(localStorage.getItem("ID")).style.color = "red";
+
+    deleteitem();
+}
+
+for (let button of buttons) {
+  button.addEventListener("click", buttonPressed);
+}
+
+
+}, 200);
+
+function deleteitem(){
+
+  var thenum = localStorage.getItem("ID").replace(/^\D+/g, ''); 
+
+   setTimeout(() => {
+    
+
+localStorage.removeItem("task" + thenum);
+
+document.getElementById("taskcount" + thenum).style.display = "none";
+
+   }, 1000);
+  
+
+
+}
+
+
+function openpopup3(){
+
+  navigator.vibrate(50)
+
+  document.getElementById("popup2").style.display = "block"
+
+  document.getElementById("popup2").style.height = "27vh"
+document.getElementById("title").innerHTML = "To-Do List"
+
+document.getElementById("info1").innerHTML = "To add a task simply put a task in input field and press submit"
+
+document.getElementById("info2").innerHTML = "To Delete a Task simply click on a particular task you Completed"
+
+document.getElementById("title").style.color = "blue";
+document.getElementById("info1").style.color = "green";
+
+document.getElementById("info2").style.color = "red";
+}
+
+
+
+
+  function changef(){
+
+    navigator.vibrate(50);
+    fetch('https://facts-by-api-ninjas.p.rapidapi.com/v1/facts', options)
+    .then(response => response.json())
+    .then((response) => {
+      
+      
+      document.getElementById("fact").innerHTML = response[0].fact;
+      
+      console.log(response)
+      
+      
+    })
+    .catch((err) =>{
+  
+  document.getElementById("fact").innerHTML = "Please Check your Internet Connection ⚠️"
+  
+    console.error(err)
+    });
+  
+  
+
+
+
+
+  }
+
+
+
+  setInterval(function() {
+    if (navigator.onLine) {
+        location.reload();
+    }
+}, 100000000000000);
+
+
+const options = {
+  method: 'GET',
+  headers: {
+    'X-RapidAPI-Key': 'b04f1742e2mshce28e4820e3b28dp1f4a4cjsneac373220d42',
+    'X-RapidAPI-Host': 'facts-by-api-ninjas.p.rapidapi.com'
+  }
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
